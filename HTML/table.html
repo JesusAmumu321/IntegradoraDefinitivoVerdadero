@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Med & Track</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    backgroundColor: {
+                        'bg-personalizado': '#b8d5db',
+                        'hd-personalizado': '#d9d9d9',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="/JS'S/mainPagejs.js"></script>
+</head>
+<body class="h-full m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-hidden">
+    <div id="divGeneral" class="w-[98vw] h-[98vh] flex flex-col my-[1vh] mx-auto bg-gray-100 p-2.5 box-border">
+        <header class="flex items-center p-4 bg-hd-personalizado w-full box-border relative top-0 left-0 h-24">
+            <div class="logo flex items-center flex-grow">
+                <img src="/assets/LOGO MED&TRACK NO OFICIAL.jpg" alt="logo" class="h-12 mr-4">
+                <h1 class="text-m font-bold">Med & Track</h1>
+            </div>
+            <nav class="navegacion mr-12">
+                <a href="#" class="text-black mx-4 font-medium text-m">Contáctanos</a>
+                <a href="#" class="text-black mx-4 font-medium text-m">UTCH</a>
+            </nav>
+            <div class="acciones flex">
+                <a href="https://google.com">
+                    <button class="bg-black text-white rounded-r-lg rounded-full py-2 px-6 ml-4 cursor-pointer hover:bg-gray-700 text-m">Registrate</button>
+                </a>
+                <a href="http://tinder.com">
+                    <button class="bg-black text-white rounded-l-lg rounded-full py-2 px-6 ml-4 cursor-pointer hover:bg-zinc-400 text-m">Inicia sesión</button>
+                </a>
+            </div>
+        </header>
+        <section class="flex-1 flex justify-center items-center p-5 bg-white overflow-auto">
+            <div class="w-full h-full">
+                <div class="overflow-auto h-full">
+                    <table class="w-full h-full table-auto border-collapse border border-gray-300">
+                        <thead class="bg-gray-800 text-white">
+                            <tr>
+                                <th class="border border-gray-300 p-4 text-lg">Columna 1</th>
+                                <th class="border border-gray-300 p-4 text-lg">Columna 2</th>
+                                <th class="border border-gray-300 p-4 text-lg">Columna 3</th>
+                                <th class="border border-gray-300 p-4 text-lg">Columna 4</th>
+                                <th class="border border-gray-300 p-4 text-lg">Columna 5</th>
+                                <th class="border border-gray-300 p-4 text-lg">Columna 7</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-gray-100 hover:bg-gray-200">
+                                <td class="border border-gray-300 p-4 aling-top" >Dato 1</td>
+                                <td class="border border-gray-300 p-4 aling-top">Dato 2</td>
+                                <td class="border border-gray-300 p-4 aling-top">Dato 3</td>
+                                <td class="border border-gray-300 p-4 aling-top">Dato 4</td>
+                                <td class="border border-gray-300 p-4 aling-top">Dato 5</td>
+                                <td class="border border-gray-300 p-4 aling-top">Dato 6</td>
+                            </tr>
+                            <!-- Puedes agregar más filas según sea necesario -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

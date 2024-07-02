@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar medicamento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            backgroundColor: {
+              "bg-personalizado": "#b8d5db",
+              "hd-personalizado": "#d9d9d9",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="h-full m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-hidden " >
+    <div class="relative w-[98vw] min-h-[96vh] flex flex-col my-[2vh] mx-auto bg-white p-2 box-border overflow-hidden rounded-lg ">
+      <!-- div general -->
+
+      <header class="bg-hd-personalizado w-[calc(100%-6px)] p-4 flex justify-between items-center mt-1 mx-1">
+        <div class="flex items-center">
+          <img src="../LOGO/logo.png" alt="logo" class="h-16 w-16 rounded-full" />
+          <h1 class="text-xl font-bold ml-3">Med & Track</h1>
+        </div>
+        <nav class="flex items-center space-x-4">
+          <a href="#" class="text-black hover:underline">UTCH</a>
+          <a href="#" class="text-black hover:underline">Contáctanos</a>
+        </nav>
+      </header>
+
+      <div class="p-6">
+        <div class="mt-4 ml-6">
+          <div class="inline-flex bg-gray-200 rounded-md p-1 space-x-1">
+            <a href="#" class="bg-white px-4 py-2 rounded-md">Agregar medicamento</a>
+            <a href="#" class="px-4 py-2">Calendario</a>
+          </div>
+        </div>
+
+      <div class="mt-9 b">
+        <h2 class="text-2xl font-bold text-center">Agregar un medicamento</h2>
+        <p class="text-center mt-2">
+          Para añadir un medicamento, asegúrese de llenar de manera correcta
+        </p>
+        <p class="text-center">todos los campos.</p>
+
+        <form class="grid grid-cols-2 gap-x-4 gap-y-5 m-6">
+          <div class="flex flex-col">
+            <label class="mb-1 text-sm"
+              >Nombre del medicamento o suplemento</label
+            >
+            <input
+              type="text"
+              placeholder="Nombre del medicamento"
+              class="border rounded-md p-2 w-full border-current"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label class="mb-1 text-sm">Caducidad del medicamento</label>
+            <input
+              type="date"
+              placeholder="dd/mm/aaaa"
+              class="border rounded-md p-2 w-full border-current"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label class="mb-1 text-sm"
+              >Cantidad de medicamento que contiene 1 caja</label
+            >
+            <input
+              type="text"
+              placeholder="Cantidad de medicamento que contiene 1 caja"
+              class="border rounded-md p-2 w-full border-current"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label class="mb-1 text-sm">Cantidad de cajas que tiene</label>
+            <input
+              type="text"
+              placeholder="Cantidad de pastillas que tiene"
+              class="border rounded-md p-2 w-full border-current"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label class="mb-1 text-sm"
+              >Cantidad por toma (pastilla / ml)</label
+            >
+            <input
+              type="text"
+              placeholder="Cantidad por toma (pastilla / ml)"
+              class="border rounded-md p-2 w-full border-current"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label class="mb-1 text-sm">Fecha fin de toma</label>
+            <input
+              type="date"
+              placeholder="dd/mm/aaaa"
+              class="border rounded-md p-2 w-full border-current"
+            />
+          </div>
+        </form>
+
+        <div class="flex justify-end mt-6 mr-8">
+          <button class="bg-black text-white px-4 py-2 rounded-md">
+            Agregar
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
