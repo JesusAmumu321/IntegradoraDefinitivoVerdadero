@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // cambia el carrusel cada 5s
-  const intervalo = setInterval(siguienteItem, 2000);
+  const intervalo = setInterval(siguienteItem, 5000);
 
   // muestra el primer item en verguisa
   mostrarItem(0);
