@@ -17,91 +17,118 @@
         },
       };
     </script>
+    <style>
+      body {
+           -webkit-user-select: none;
+           -moz-user-select: none;
+           -ms-user-select: none;
+           user-select: none;
+       }
+       input {
+           -webkit-user-select: text;
+           -moz-user-select: text;
+           -ms-user-select: text;
+           user-select: text;
+       }
+   </style>
   </head>
 
-  <body class="h-full m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-hidden " >
-    <div class="relative w-[98vw] min-h-[96vh] flex flex-col my-[2vh] mx-auto bg-white p-2 box-border overflow-hidden rounded ">
-      <!-- div general -->
+  <body class="h-full m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-hidden">
+    <div id="divGeneral" class="w-[98vw] h-[96vh] flex flex-col my-[1vh] mx-auto bg-gray-100 p-2.5 box-border rounded">
 
-      <header class="bg-hd-personalizado w-[calc(100%-6px)] p-4 flex justify-between items-center mt-1 mx-1 rounded">
-        <div class="flex items-center">
-          <img src="/assets/assetsConcactUs/logo.png" alt="logo" class="h-16 w-16 rounded-full" />
-          <h1 class="text-xl font-bold ml-3">Med & Track</h1>
-        </div>
-        <nav class="flex items-center space-x-4">
-          <a href="#" class="text-black hover:underline">UTCH</a>
-          <a href="#" class="text-black hover:underline">Contáctanos</a>
-        </nav>
-      </header>
-
-      <div class="p-6">
-        <div class="mt-4 ml-6">
-          <div class="inline-flex bg-gray-200 rounded-md p-1 space-x-1">
-            <a href="#" class="bg-white px-4 py-2 rounded-md">Agregar medicamento</a>
-            <a href="#" class="px-4 py-2">Calendario</a>
+        <header class="flex items-center p-6 bg-hd-personalizado w-full rounded top-0 left-0 h-30 ">
+            <div class="logo flex items-center flex-grow h-10">
+                <img src="/assets/assetsConcactUs/logo.png" alt="logo" class="h-16 w-16 mr-4">
+                <h1 class="text-3xl font-bold">Med & Track</h1>
+            </div>
+            <nav class="navegacion mr-12">
+                <a href="#" class="text-black mx-4 font-medium text-2xl">
+                    Contactenos
+                </a>
+                <a href="#" class="text-black mx-4 font-medium text-2xl">
+                    UTCH
+                </a>
+            </nav>
+            <a href="#">
+                <button
+                    class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden rounded-r-lg rounded-full group bg-black text-white hover:text-white text-sm mx-2">
+                    <span
+                        class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
+                    <span class="relative transition-colors duration-200 ease-in-out z-10">
+                        Mi Usuario <!-- TODAVIA FALTA ESTE ARCHIVO-->
+                    </span>
+                </button>
+            </a>
+        </header>
+      
+        <div class="flex-1 flex flex-col">
+          <div class="mt-4 ml-6">
+              <div class="inline-flex bg-gray-200 rounded-md p-1 space-x-1">
+                  <a href="#" class="bg-white px-6 py-4 text-lg rounded-md">Agregar medicamento</a>
+                  <a href="#" class="px-6 py-4 text-lg">Calendario</a>
+              </div>
           </div>
-        </div>
 
       <div class="mt-9 b">
-        <h2 class="text-2xl font-bold text-center">Agregar un medicamento</h2>
-        <p class="text-center mt-2">
+        <h2 class="text-4xl font-bold text-center">Agregar un medicamento</h2>
+        <p class="text-center mt-2 text-2xl">
           Para añadir un medicamento, asegúrese de llenar de manera correcta
         </p>
-        <p class="text-center">todos los campos.</p>
+        <p class="text-center text-2xl">todos los campos.</p>
 
         <form class="grid grid-cols-2 gap-x-4 gap-y-5 m-6">
           <div class="flex flex-col">
-            <label class="mb-1 text-sm"
+            <label class="mb-1 text-xl"
               >Nombre del medicamento o suplemento</label
             >
             <input
               type="text"
               placeholder="Nombre del medicamento"
-              class="border rounded-md p-2 w-full border-current"
+              class="border rounded-md p-3 w-full border-current"
             />
           </div>
           <div class="flex flex-col">
-            <label class="mb-1 text-sm">Caducidad del medicamento</label>
+            <label class="mb-1 text-xl">Caducidad del medicamento</label>
             <input
               type="date"
               placeholder="dd/mm/aaaa"
-              class="border rounded-md p-2 w-full border-current"
+              class="border rounded-md p-3 w-full border-current"
             />
           </div>
           <div class="flex flex-col">
-            <label class="mb-1 text-sm"
+            <label class="mb-1 text-xl"
               >Cantidad de medicamento que contiene 1 caja</label
             >
             <input
               type="text"
               placeholder="Cantidad de medicamento que contiene 1 caja"
-              class="border rounded-md p-2 w-full border-current"
+              class="border rounded-md p-3 w-full border-current"
             />
           </div>
           <div class="flex flex-col">
-            <label class="mb-1 text-sm">Cantidad de cajas que tiene</label>
+            <label class="mb-1 text-xl">Cantidad de cajas que tiene</label>
             <input
               type="text"
               placeholder="Cantidad de pastillas que tiene"
-              class="border rounded-md p-2 w-full border-current"
+              class="border rounded-md p-3 w-full border-current"
             />
           </div>
           <div class="flex flex-col">
-            <label class="mb-1 text-sm"
+            <label class="mb-1 text-xl"
               >Cantidad por toma (pastilla / ml)</label
             >
             <input
               type="text"
               placeholder="Cantidad por toma (pastilla / ml)"
-              class="border rounded-md p-2 w-full border-current"
+              class="border rounded-md p-3 w-full border-current"
             />
           </div>
           <div class="flex flex-col">
-            <label class="mb-1 text-sm">Fecha fin de toma</label>
+            <label class="mb-1 text-xl">Fecha fin de toma</label>
             <input
               type="date"
               placeholder="dd/mm/aaaa"
-              class="border rounded-md p-2 w-full border-current"
+              class="border rounded-md p-3 w-full border-current"
             />
           </div>
         </form>
