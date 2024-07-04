@@ -1,8 +1,9 @@
-<!--Este fromulario sirve para que se registren los nuevos usuarios.-->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regístrese</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,64 +22,61 @@
             }
         }
     </script>
-    <style>
-       body {
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-        input {
-            -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: text;
-        }
-    </style>
 </head>
-<body class="bg-[#b8d5db] font-sans h-screen flex items-center justify-center">
-    <div class="flex w-full max-w-7xl h-5/6">
-        <!-- Lado izquierdo con logo y título -->
-        <div class="w-2/5 flex flex-col items-center justify-center pr-12">
-            <div class="flex items-center mb-1 w-full justify-center">
-                <img class="h-40 w-40 rounded-full mr-4" src="/assets/assetsConcactUs/logo.png" alt="Logo">
-                <h1 class="text-4xl font-bold ml-2">Med &<br>Track</h1>
+
+<body class="bg-custom-bg min-h-screen flex items-center justify-center p-4 font-roboto">
+    <div
+        class="flex flex-col md:flex-row w-full max-w-6xl h-auto md:h-[90vh] bg-white shadow-2xl rounded-lg overflow-hidden">
+
+        <!-- Sección izquierda (logo e imagen) -->
+        <div class="w-full md:w-1/2 bg-cover bg-center h-64 md:h-auto relative">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4">
+                <img src="/assets/assetsConcactUs/LOGO MED&TRACK NO OFICIAL.jpg"
+                    class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
+                <div class="text-white text-center">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-2">Med & Track</h1>
+                    <p class="text-lg md:text-xl">Su compañero de salud</p>
+                </div>
             </div>
-            <p class="text-lg mt-0 self-end mr-14">Cree una cuenta.</p>
         </div>
 
-        <!-- Lado derecho con formulario -->
-        <div class="w-3/5 bg-custom-form rounded-lg shadow-md p-8 flex flex-col self-end ml-60 ">
-            <div>
-                <h2 class="text-3xl font-roboto mb-6">Regístrese</h2>
-                <p class="mb-8 text-sm">¿Ya tienes cuenta? <a href="#" class="text-blue-600 font-roboto">Inicia Sesión</a></p>
-
-                <form class="space-y-6">
-                    <div>
-                        <label class="block mb-2 text-xl font-roboto">Nombre de usuario <span class="text-red-500">*</span></label>
-                        <input type="text" class="w-full p-3 border-2 rounded" name="username" required>
-                    </div>
-                    <div>
-                        <label class="block mb-2 text-xl font-roboto">Dirección de correo electrónico <span class="text-red-500">*</span></label>
-                        <input type="email" class="w-full p-3 border-2 rounded" name="email" required>
-                    </div>
-                    <div>
-                        <label class="block mb-2 text-xl font-roboto">Cree su contraseña <span class="text-red-500">*</span></label>
-                        <input type="password" class="w-full p-3 border-2 rounded" name="password" required>
-                    </div>
-                    <div>
-                        <label class="block mb-2 text-xl font-roboto">Confirme su contraseña <span class="text-red-500">*</span></label>
-                        <input type="password" class="w-full p-3 border-2 rounded" name="confirm_password" required>
-                    </div>
-                </form>
-            </div>
-
-            <div class="flex justify-end mt-8">
-                <a href="https://youtube.com">
-                <button class="bg-black text-white px-8 py-3 rounded font-roboto" >Continuar</button>
-            </a>
-            </div>
+        <!-- Sección derecha (formulario) -->
+        <div class="w-full md:w-1/2 bg-custom-form p-6 md:p-8 lg:p-12 flex flex-col justify-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8">Regístrese</h2>
+            <p class="mb-8 text-sm">¿Ya tienes cuenta? <a href="#" class="text-blue-600 font-roboto">Inicia Sesión</a>
+            </p>
+            <form class="space-y-4 md:space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nombre de usuario <span
+                            class="text-red-500">*</span></label>
+                    <input type="text" name="username" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Dirección de correo electrónico <span
+                            class="text-red-500">*</span></label>
+                    <input type="email" name="email" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Cree su contraseña <span
+                            class="text-red-500">*</span></label>
+                    <input type="password" name="password" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Confirme su contraseña <span
+                            class="text-red-500">*</span></label>
+                    <input type="password" name="confirm_password" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <button type="submit"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Continuar
+                </button>
+            </form>
         </div>
     </div>
 </body>
+
 </html>

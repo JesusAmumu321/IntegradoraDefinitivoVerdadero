@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Med & Track</title>
+    <title>Med & Track - Contáctanos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,17 +23,22 @@
         }
     </script>
 </head>
-<body class="bg-custom-bg">
-    <div class="flex justify-between items-center h-screen">
-        <div class="flex flex-col items-center justify-center w-1/2 h-full -mt-5">
-            <div class="flex flex-row items-center">
-                <img class="h-40 w-40 rounded-full mr-4" src="/assets/assetsConcactUs/logo.png" alt="Logo" />
-                <div class="flex flex-col items-start">
-                    <h1 class="text-4xl font-bold m-0 leading-tight">Med &</h1>
-                    <h1 class="text-4xl font-bold m-0 leading-tight">Track</h1>
-                </div>
+
+<body class="bg-custom-bg min-h-screen flex items-center justify-center p-4 font-roboto">
+    <div
+        class="flex flex-col md:flex-row w-full max-w-6xl h-auto md:h-[90vh] bg-white shadow-2xl rounded-lg overflow-hidden">
+
+        <!-- Sección izquierda (logo e imagen) -->
+        <div class="w-full md:w-1/2 bg-cover bg-center h-64 md:h-auto relative">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4">
+            <img src="/assets/assetsConcactUs/LOGO MED&TRACK NO OFICIAL.jpg"
+                class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
+            <div class="text-white text-center">
+                <h1 class="text-3xl md:text-5xl font-bold mb-2">Med & Track</h1>
+                <p class="text-lg md:text-xl">Su compañero de salud</p>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="flex flex-col bg-custom-form rounded-md font-roboto h-4/5 w-2/5 mx-auto ">
             <form class="flex flex-col mt-[9%] mx-[15%]">
                 <h2 class="mb-3 text-3xl ">Contactanos</h2>
@@ -50,47 +56,73 @@
                         <label for="duda" class="text-lg mr-9 ml-0">Duda</label>
                         <input type="radio" name="aclara" value="opcion3" class="w-8 h-8 transform scale-150">
                         <label for="aclara" class="text-lg mr-9 ml-0">Aclaracion</label>
+=======
+    </div>
+
+        <!-- Sección derecha (formulario) -->
+        <div class="w-full md:w-1/2 bg-custom-form p-6 md:p-8 lg:p-12 flex flex-col justify-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8">Contáctanos</h2>
+            <form class="space-y-4 md:space-y-6">
+                <div>
+                    <label for="usuario" class="block text-sm font-medium text-gray-700 mb-1">Usuario</label>
+                    <input type="text" name="usuario" id="usuario" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="correo" class="block text-sm font-medium text-gray-700 mb-1">Dirección de correo
+                        electrónico</label>
+                    <input type="email" name="correo" id="correo" required
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Razón del contacto:</label>
+                    <div class="flex flex-wrap gap-4">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="razon" value="queja" class="form-radio h-5 w-5 text-blue-600">
+                            <span class="ml-2">Queja</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="razon" value="duda" class="form-radio h-5 w-5 text-blue-600">
+                            <span class="ml-2">Duda</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="razon" value="aclaracion"
+                                class="form-radio h-5 w-5 text-blue-600">
+                            <span class="ml-2">Aclaración</span>
+                        </label>
+>>>>>>> 3469625 (CAMBIOS EN "contactUS", "Login" y "registro".)
                     </div>
-                  </div>
-                <label for="deta" class="text-xl">Detalles</label>
-                <textarea name="deta" class="h-32 resize-none rounded-lg border border-gray-200 mb-2 p-4"></textarea>
-                <!-- <label for="select" class="text-xl">Como nos ubico?</label>
-                <select class="w-full h-12 mb-2 mt-2 appearance-none bg-white border border-gray-300 rounded-md px-4 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </select> -->
-                
-                
-                <div class="relative">
-                    <select class="w-full h-12 mb-2 mt-2 appearance-none bg-white border border-gray-300 rounded-md px-4 pr-8 text-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <!-- opciones aquí -->
-                        <option selected>Seleccione</option>
-                        <option value="1">Recomendacion del Hospital</option>
-                        <option value="2">Publicidad</option>
-                        <option value="3">Conocidos</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                      </svg>
+                </div>
+                <div>
+                    <label for="detalles" class="block text-sm font-medium text-gray-700 mb-1">Detalles</label>
+                    <textarea name="detalles" id="detalles" rows="4"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"></textarea>
+                </div>
+                <div>
+                    <label for="ubicacion" class="block text-sm font-medium text-gray-700 mb-1">¿Cómo nos ubicó?</label>
+                    <div class="relative">
+                        <select id="ubicacion" name="ubicacion"
+                            class="w-full h-12 appearance-none bg-white border border-gray-300 rounded-md px-4 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option selected>Seleccione</option>
+                            <option value="hospital">Recomendación del Hospital</option>
+                            <option value="publicidad">Publicidad</option>
+                            <option value="conocidos">Conocidos</option>
+                        </select>
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                        </div>
                     </div>
-                  </div>
-                <button type="submit" class="relative overflow-hidden rounded-md bg-gray-800 text-white px-7 py-3 text-lg font-medium cursor-pointer ml-auto mt-9 h-12">
-                    <span class="absolute inset-0 transition-all duration-500 ease-in-out bg-opacity-60 bg-indigo-500 rounded-full transform scale-0 group-hover:scale-100"></span>
-                    <span class="relative">Enviar</span>
+                </div>
+                <button type="submit"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Enviar
                 </button>
             </form>
         </div>
     </div>
-    <script>
-        const radioButtons = document.querySelectorAll('input[type="radio"]');
-        radioButtons.forEach((radio) => {
-            radio.addEventListener('click', () => {
-                radioButtons.forEach((otherRadio) => {
-                    if (otherRadio !== radio) {
-                        otherRadio.checked = false;
-                    }
-                });
-            });
-        });
-    </script>
 </body>
+
 </html>
