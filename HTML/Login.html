@@ -13,7 +13,7 @@
                 extend: {
                     colors: {
                         'custom-bg': '#b8d5db',
-                        'custom-form': '#FFFFFF',
+                        'custom-form': '#ECECEC',
                     },
                     fontFamily: {
                         'roboto': ['Roboto', 'sans-serif'],
@@ -31,7 +31,7 @@
         <!-- Sección izquierda (imagen de fondo) -->
         <div class="w-full md:w-1/2 bg-cover bg-center h-64 md:h-auto relative">
             <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4">
-                <img src="/assets/assetsConcactUs/LOGO MED&TRACK NO OFICIAL.jpg"
+                <img src="/assets/assetsConcactUs/logo.jpg"
                     class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
                 <div class="text-white text-center">
                     <h1 class="text-3xl md:text-5xl font-bold mb-2">Med & Track</h1>
@@ -42,35 +42,35 @@
 
         <!-- Sección derecha (formulario) -->
         <div class="w-full md:w-1/2 bg-custom-form p-6 md:p-8 lg:p-12 flex flex-col justify-center">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8">Inicio de sesión</h2>
+            <h2 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8">Inicio de sesión</h2>
             <form class="space-y-4 md:space-y-6">
                 <div>
-                    <label for="correo" class="block text-sm font-medium text-gray-700 mb-1">Dirección de correo
+                    <label for="correo" class="block text-sm font-medium text-xl text-gray-700 mb-1">Dirección de correo
                         electrónico <span class="text-red-500">*</span></label>
                     <input type="email" name="correo" id="correo" required
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña <span
+                    <label for="password" class="block text-sm font-medium text-xl text-gray-700 mb-1">Contraseña <span
                             class="text-red-500">*</span></label>
                     <input type="password" name="password" id="password" required
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div>
-                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirmación de
+                    <label for="confirmPassword" class="block text-sm font-medium text-xl text-gray-700 mb-1">Confirmación de
                         contraseña <span class="text-red-500">*</span></label>
                     <input type="password" name="confirmPassword" id="confirmPassword" required
                         class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <button type="submit"
-                    class="w-full flex justify-center py-2 px-4 border border-transparent 
-                    rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    class="w-full flex justify-center py-3 px-4 border border-transparent 
+                    rounded-md shadow-sm text-xl font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     Iniciar sesión
                 </button>
             </form>
-            <p class="mt-6 text-center text-sm text-gray-600">
+            <p class="mt-6 text-center text-xl text-gray-600">
                 ¿No tiene una cuenta?
-                <a href="#" class="font-medium text-blue-600 hover:underline">Regístrese aquí</a>
+                <a href="/HTML/registro.html" class="font-medium text-blue-600 hover:underline">Regístrese aquí</a>
             </p>
         </div>
     </div>
