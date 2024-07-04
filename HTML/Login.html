@@ -1,37 +1,68 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/loginstyle.css">
-    <title>Med&Track</title>
+    <title>Med & Track</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-bg': '#b8d5db',
+                        'custom-form': '#ECECEC',
+                    },
+                    fontFamily: {
+                        'roboto': ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <div class="box">
-        <div class="info">
-            <img class="image" src="/assets/assetsConcactUs/logo.png" alt="Logo">
-            <div class="med-track">Med&Track</div>
-            <div class="text-wrapper-5">Inicia sesión</div>
+<body class="bg-custom-bg">
+    <div class="flex justify-between items-center h-screen">
+        <div class="w-2/5 flex flex-col items-center justify-center pr-12">
+            <div class="flex items-center mb-1 w-full justify-center">
+                <img class="h-40 w-40 rounded-full mr-4" src="/assets/assetsConcactUs/logo.png" alt="Logo">
+                <h1 class="text-4xl font-bold ml-2">Med &<br>Track</h1>
+            </div>
+            <p class="text-lg mt-1  ml-10">Inicie con una cuenta.</p>
         </div>
-        <div class="auth">
-          <div class="text-wrapper">Inicio de sesión</div>
-          <p class="eres-nuevo-usuario-a">¿Eres nuevo usuario? <a href="#">Crea una cuenta</a></p>
-          <form action="/login" method="post">
-            <label for="email">Dirección de correo electrónico</label>
-            <div class="field">
-                <input type="email" id="email" name="email" class="input" required>
-            </div>
-            <label for="password">Contraseña</label>
-            <div class="field-2">
-                <input type="password" id="password" name="password" class="input" required>
-            </div>
-            <button type="submit" class="boton-mas">
-                <span class="text-wrapper-4">Continuar</span>
-            </button>
-        </form>
-      </div>
-      </div>
+
+
+        <div class="flex flex-col bg-custom-form rounded-md font-roboto h-4/5 w-2/5 mx-20">
+            <form class="flex flex-col my-[9%] mx-[15%]">
+                <h2 class="mb-3  mt-10 text-3xl">Inicio de sesion</h2>
+
+                <p>Es nuevo usuario? <a href="/HTML/registro.html" class="text-blue-600 font-roboto ml-1">Registrese</a></p>
+                <label for="correo" class="text-xl mt-20">Direccion de correo electronico</label>
+                <input type="text" name="correo" class="h-12 border border-gray-200 rounded-md mb-2 mt-2 p-4">
+                <label for="usoName" class="text-xl mt-10">Contraseña</label>
+                <input type="text" name="usoName" class="h-12 border rounded-md mb-2 mt-2 p-4 ">
+                <label for="correo" class="text-xl mt-10">Confirmacion de contraseña</label>
+                <input type="text" name="correo" class="h-12 border border-gray-200 rounded-md mb-2 mt-2 p-4">
+                
+                <button type="submit" class="relative overflow-hidden rounded-md bg-gray-800 text-white px-7 py-3 text-lg font-medium cursor-pointer ml-auto mt-20 h-12">
+                    <span class="absolute inset-0 transition-all duration-500 ease-in-out bg-opacity-60 bg-indigo-500 rounded-full transform scale-0 group-hover:scale-100"></span>
+                    <span class="relative">Enviar</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach((radio) => {
+            radio.addEventListener('click', () => {
+                radioButtons.forEach((otherRadio) => {
+                    if (otherRadio !== radio) {
+                        otherRadio.checked = false;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
-
