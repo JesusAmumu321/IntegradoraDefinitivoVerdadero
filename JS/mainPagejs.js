@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const botonesInferiores = document.querySelectorAll(".botonInferior");
   let indexActual = 0;
   const textos = [
-    "Obtenga un mejor seguimiento de sus medicamentos.",
+    "Obtenga un mejor monitoreo de sus medicamentos.",
     "Agregue los medicamentos que desee.",
     "Obtenga un calendario para su medicación.",
     "Descargue su calendario en cualquier momento."
