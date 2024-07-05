@@ -13,6 +13,11 @@
           backgroundColor: {
             'bg-personalizado': '#b8d5db',
             'hd-personalizado': '#d9d9d9',
+          },
+          fontSize: {
+            'g': '1.5rem',
+            'm': '1.125rem',
+            's': '0.875rem',
           }
         }
       }
@@ -37,10 +42,10 @@
         <a href="https://www.x.com" class="text-black mx-4 font-medium text-m">UTCH</a>
       </nav>
 
-      <div class="acciones flex"> <!-- botones registrate y header-->
+      <div class="acciones flex">
         <a href="/HTML/registro.html">
           <button
-            class="relative inline-flex items-center justify-center px-8 py-2 overflow-hidden rounded-r-lg rounded-full group bg-black text-white hover:text-white text-sm mx-2">
+            class="relative inline-flex items-center justify-center px-8 py-2 overflow-hidden rounded-r-lg rounded-full group bg-black text-white hover:text-white text-s mx-2">
             <span
               class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
             <span class="relative transition-colors duration-200 ease-in-out z-10" href="/HTML/registro.html">
@@ -49,25 +54,25 @@
           </button>
         </a>
 
-        <a href="#">
+        <a href="/HTML/Login.html">
           <button
-            class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden rounded-l-lg rounded-full group bg-black text-white hover:text-white text-sm mx-2">
+            class="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden rounded-l-lg rounded-full group bg-black text-white hover:text-white text-s mx-2">
             <span
               class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
             <span class="relative transition-colors duration-200 ease-in-out z-10">
-              Inicia sesion <!-- TODAVIA FALTA ESTE ARCHIVO-->
+              Inicia sesion
             </span>
           </button>
         </a>
-      </div> <!-- botones registrate y header-->
+      </div>
     </header>
 
-    <section class="flex-1 flex justify-between items-center p-5 bg-white"> <!-- items carrusel-->
+    <section class="flex-1 flex justify-between items-center p-5 bg-white">
 
       <div class="flex-1 flex flex-col justify-center items-start pr-5">
-        <p id="textoCarrusel" class="text-2xl font-normal mb-5 animation-fade"></p>
+        <p id="textoCarrusel" class="text-g font-normal mb-5 animation-fade"></p>
         <button id="botonSesion"
-          class="bg-black text-white rounded-md py-2 px-4 cursor-pointer hover:bg-gray-700">Inicia
+          class="bg-black text-white rounded-md py-2 px-4 cursor-pointer hover:bg-gray-700 text-s">Inicia
           More</button>
       </div>
 
@@ -75,16 +80,16 @@
 
         <div class="relative h-full w-full">
           <div
-            class="carrusel-item absolute top-0 left-0 w-full h-full flex justify-center items-center text-2xl bg-gray-200 transition-opacity duration-500 opacity-0 pointer-events-none bg-cover bg-center">
+            class="carrusel-item absolute top-0 left-0 w-full h-full flex justify-center items-center text-g bg-gray-200 transition-opacity duration-500 opacity-0 pointer-events-none bg-cover bg-center">
           </div>
           <div
-            class="carrusel-item absolute top-0 left-0 w-full h-full flex justify-center items-center text-2xl bg-gray-200 transition-opacity duration-500 opacity-0 pointer-events-none bg-cover bg-center">
+            class="carrusel-item absolute top-0 left-0 w-full h-full flex justify-center items-center text-g bg-gray-200 transition-opacity duration-500 opacity-0 pointer-events-none bg-cover bg-center">
           </div>
           <div
-            class="carrusel-item absolute top-0 left-0 w-full h-full flex justify-center items-center text-2xl bg-gray-200 transition-opacity duration-500 opacity-0 pointer-events-none bg-cover bg-center">
+            class="carrusel-item absolute top-0 left-0 w-full h-full flex justify-center items-center text-g bg-gray-200 transition-opacity duration-500 opacity-0 pointer-events-none bg-cover bg-center">
           </div>
           <div
-            class="carrusel-item absolute top-0 left-0 w-full h-full flex justify-center items-center text-2xl bg-gray-200 transition-opacity duration-500 opacity-0 pointer-events-none bg-cover bg-center">
+            class="carrusel-item absolute top-0 left-0 w-full h-full flex justify-center items-center text-g bg-gray-200 transition-opacity duration-500 opacity-0 pointer-events-none bg-cover bg-center">
           </div>
         </div>
 
@@ -97,7 +102,7 @@
         <button class="botonInferior w-3.5 h-3.5 rounded-full bg-gray-300 cursor-default"></button>
       </div>
 
-    </section> <!-- items carrusel-->
+    </section>
 
   </div>
 </body>
