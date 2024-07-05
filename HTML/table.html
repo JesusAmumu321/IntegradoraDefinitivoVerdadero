@@ -18,16 +18,17 @@
             }
         }
     </script>
+    <script src="/JS/table.js" defer></script>
     <script src="/JS'S/mainPagejs.js"></script>
 </head>
 
 <body class="h-full m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-hidden">
     <div id="divGeneral" class="w-[98vw] h-[96vh] flex flex-col my-[1vh] mx-auto bg-gray-100 p-2.5 box-border rounded">
 
-        <header class="flex items-center p-6 bg-hd-personalizado w-full rounded top-0 left-0 h-32 ">
+        <header class="flex items-center p-6 bg-hd-personalizado w-full rounded top-0 left-0 h-20 ">
             <div class="logo flex items-center flex-grow h-10">
                 <img src="/assets/assetsConcactUs/logo.jpg" alt="logo" class="h-16 w-16 mr-4 rounded-full">
-                <h1 class="text-4xl font-bold">Med & Track</h1>
+                <h1 class="text-3xl font-bold">Med & Track</h1>
             </div>
             <nav class="navegacion mr-12">
                 <a href="/HTML/contactUS.html" class="text-black mx-4 font-medium text-2xl">
@@ -37,12 +38,14 @@
                     UTCH
                 </a>
             </nav>
+
+        
             <a href="#">
                 <button
-                    class="relative inline-flex items-center justify-center px-7 py-4 overflow-hidden rounded-r-lg rounded-full group bg-black text-white hover:text-white text-m mr-2">
+                    class="relative inline-flex items-center justify-center px-4 py-2 overflow-hidden rounded-r-lg rounded-full group bg-black text-white hover:text-white text-m mr-2">
                     <span
                         class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
-                    <span class="relative transition-colors duration-200 ease-in-out text-2xl z-10">
+                    <span class="relative transition-colors duration-200 ease-in-out text-xl z-10">
                         Mi Usuario <!-- TODAVIA FALTA ESTE ARCHIVO-->
                     </span>
                 </button>
@@ -52,78 +55,30 @@
         <div class="flex-1 flex flex-col">
             <div class="mt-4 ml-6">
                 <div class="inline-flex bg-gray-200 rounded-md p-1 space-x-1 mb-6">
-                    <a class="bg-white px-6 py-4 text-2xl rounded-md">Medicamentos</a>
-                    <a href="/HTML/agregar_medicamento.html"class="px-6 py-4 text-2xl">Agregar Medicamento</a>
-                    <a href="" class="px-6 py-4 text-2xl">Calendario</a>
+                    <a class="bg-white px-5 py-3 text-xl rounded-md">Medicamentos</a>
+                    <a href="/HTML/agregar_medicamento.html"class="px-5 py-3 text-xl">Agregar Medicamento</a>
+                    <a href="" class="px-5 py-3 text-2xl">Calendario</a>
                 </div>
             </div>
-            <div class="flex items-center font-medium justify-center h-20">
-                <h1 class="text-5xl">Visualize sus Medicamentos</h1>
+            <div class="flex items-center font-medium justify-center h-20  border-b-4 border-t-4">
+                <h1 class="text-4xl">Visualize sus Medicamentos</h1>
             </div>
             <section class="flex-1 flex justify-center items-center p-5  bg-gray-100 overflow-auto">
                 <div class="w-full h-full">
                     <div class="overflow-auto h-full">
-                        <table class="w-full h-full table-auto border-collapse border  text-2xl ">
-                            <thead class="bg-gray-800 text-white">
+                        <table class="w-full h-full  table-auto border-collapse border mb-2 text-xl ">
+                            <thead class="bg-gray-800 text-white text-2xl">
                                 <tr>
-                                    <th class="border border-gray-300 p-4 text-3xl text-left">Medicamento</th>
-                                    <th class="border border-gray-300 p-4 text-3xl text-left">Caducidad</th>
-                                    <th class="border border-gray-300 p-4 text-3xl text-left">Cantidad de la caja</th>
-                                    <th class="border border-gray-300 p-4 text-3xl text-left">Dosis</th>
-                                    <th class="border border-gray-300 p-4 text-3xl text-left">Proximo consumo</th>
-                                    <th class="border border-gray-300 p-4 text-3xl text-left">Fin de consumo</th>
+                                    <th class="border border-gray-300 p-4 text-center">Medicamento</th>
+                                    <th class="border border-gray-300 p-4 text-center">Caducidad</th>
+                                    <th class="border border-gray-300 p-4 text-center">Cantidad de la caja</th>
+                                    <th class="border border-gray-300 p-4 text-center">Dosis</th>
+                                    <th class="border border-gray-300 p-4 text-center">Proximo consumo</th>
+                                    <th class="border border-gray-300 p-4 text-center">Fin de consumo</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="bg-gray-200 ">
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                </tr>
-                                <tr class="bg-gray-200 ">
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                </tr>
-                                <tr class="bg-gray-200 ">
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                </tr>
-                                <tr class="bg-gray-200 ">
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                </tr>
-                                <tr class="bg-gray-200 ">
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                </tr>
-                                <tr class="bg-gray-200 ">
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                    <td class="border border-gray-300 p-4 align-top">Dato </td>
-                                </tr>
-                                <!-- Puedes agregar más filas según sea necesario -->
+                            <tbody id="laTablona">
+                                
                             </tbody>
                         </table>
                     </div>
