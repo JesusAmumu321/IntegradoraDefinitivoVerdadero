@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
   function buildTable(data) {
       const table = document.getElementById('laTablona');
       for (let i = 0; i < data.length; i++) {
-          const row = `<tr class="bg-gray-200 text-xl">
-              <td class="border border-gray-300 p-4 align-top text">${data[i].medicamento}</td>
-              <td class="border border-gray-300 p-4 align-top">${data[i].caducidad}</td>
-              <td class="border border-gray-300 p-4 align-top">${data[i].cantidad}</td>
-              <td class="border border-gray-300 p-4 align-top">${data[i].dosis}</td>
-              <td class="border border-gray-300 p-4 align-top">${data[i].proximo}</td>
-              <td class="border border-gray-300 p-4 align-top">${data[i].fin}</td>
+          const row = `<tr class="bg-gray-200 text-2xl">
+              <td class="border border-gray-300 p-4 align-center text">${data[i].medicamento}</td>
+              <td class="border border-gray-300 p-4 align-center">${data[i].caducidad}</td>
+              <td class="border border-gray-300 p-4 align-center">${data[i].cantidad}</td>
+              <td class="border border-gray-300 p-4 align-center">${data[i].dosis}</td>
+              <td class="border border-gray-300 p-4 align-center">${data[i].proximo}</td>
+              <td class="border border-gray-300 p-4 align-center">${data[i].fin}</td>
           </tr>`;
           table.innerHTML += row;
       }
