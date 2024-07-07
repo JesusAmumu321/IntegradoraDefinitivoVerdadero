@@ -25,7 +25,7 @@
         }
       }
     }
-  </script>
+  </script>  
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -73,6 +73,8 @@
         </div>
       </div>
 
+
+
       <div class="flex flex-col items-center border-b-2 border-t-2 py-3 mb-4">
         <h2 class="text-g font-bold mb-1">Agregar un medicamento</h2>
         <p class="text-s mb-2 text-center">Para añadir un medicamento, asegúrese de llenar de manera correcta todos los
@@ -80,6 +82,9 @@
       </div>
 
       <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-4">
+
+
+
         <div class="flex flex-col">
           <label for="ubicacion" class="block mb-1 text-s">¿Pastillas o mL ?</label>
           <div class="relative">
@@ -93,23 +98,33 @@
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium">Nombre del medicamento o suplemento</label>
-          <input type="text" placeholder="Ej. Paracetamol"
-            class="border rounded-md p-1.5 w-full text-s focus:ring-black" />
+          <label class="mb-1 text-s font-medium">
+            Nombre del medicamento o suplemento. <span class="text-red-500">*</span>
+          </label>
+          <input type="text" name="nombreMed" id="nombreMed" required placeholder="Ej. Paracetamol."
+            class="w-full px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium">Cantidad de medicamento que contiene 1 caja</label>
-          <input type="text" placeholder="Ej. 10" class="border rounded-md p-1.5 w-full text-s focus:ring-black" />
+          <label class="mb-1 text-s font-medium">
+            Cantidad de medicamento que contiene 1 caja. <span class="text-red-500">*</span>
+          </label>
+          <input type="number" name="cantidadUnaCaja" id="cantidadUnaCaja" required placeholder="Ej. 10."
+            class="w-full px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium">Cantidad de cajas que tiene</label>
-          <input type="text" placeholder="Ej. 3" class="border rounded-md p-1.5 w-full text-s focus:ring-black" />
+          <label class="mb-1 text-s font-medium">
+            Cantidad de cajas que tiene. <span class="text-red-500">*</span>
+          </label>
+          <input type="number" name="cantidadUnaCaja" id="cantidadUnaCaja" required placeholder="Ej. 3."
+            class="w-full px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium">Caducidad del medicamento</label>
+          <label class="mb-1 text-s font-medium animate-pulse">
+            Caducidad del medicamento
+          </label>
           <input type="date" class="border rounded-md p-1.5 w-full text-s focus:ring-black" />
         </div>
 
