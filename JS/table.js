@@ -24,30 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
   'proximo': 'Viernes',
   'fin': '15/06'
 },
-{
-  'medicamento': 'Ibuprofeno2',
-  'caducidad': '12/2024',
-  'cantidad': '20',
-  'dosis': '2 tabletas',
-  'proximo': 'Viernes',
-  'fin': '15/06'
-},
-{
-  'medicamento': 'Ibuprofeno2',
-  'caducidad': '12/2024',
-  'cantidad': '20',
-  'dosis': '2 tabletas',
-  'proximo': 'Viernes',
-  'fin': '15/06'
-},
-{
-  'medicamento': 'Ibuprofeno2',
-  'caducidad': '12/2024',
-  'cantidad': '20',
-  'dosis': '2 tabletas',
-  'proximo': 'Viernes',
-  'fin': '15/06'
-},
 // Puedes seguir añadiendo más objetos aquí
 ];
 
