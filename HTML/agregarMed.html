@@ -48,7 +48,7 @@
         <a href="https://www.utch.edu.mx"
           class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">UTCH</a>
       </nav>
-
+<!-- 
       <div class="acciones flex flex-wrap justify-center sm:justify-end w-full sm:w-auto order-2 sm:order-3">
         <button type="submit"
           class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 sm:px-8 py-2 overflow-hidden rounded-lg group bg-black text-white hover:text-white text-s mx-1 sm:mx-2 transition duration-300 ease-in-out transform hover:scale-105">
@@ -58,40 +58,40 @@
             Usuario FALTA ESTA PAGINA
           </span>
         </button>
-      </div>
+      </div> -->
     </header>
 
     <section class="flex-1 flex flex-col p-5 bg-white">
 
       <div class="mb-4">
-        <div class="inline-flex bg-gray-100 rounded-lg overflow-hidden">
-          <a class="bg-white px-4 py-1.5 text-gray-600 text-s">Agregar
+        <div class="inline-flex bg-gray-100 rounded-lg  overflow-hidden">
+          <a class="bg-white border-solid border-2 rounded-lg border-bg-personalizado px-4 py-1.5 text-gray-600 text-m">Agregar
             Medicamento</a>
           <a href="/HTML/table.html"
-            class="px-4 py-1.5 text-gray-600 text-s hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Sus
+            class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Sus
             Medicamentos</a>
           <a href="#"
-            class="px-4 py-1.5 text-gray-600 text-s hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Calendario</a>
+            class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Calendario</a>
         </div>
       </div>
 
 
 
-      <div class="flex flex-col items-center border-b-2 border-t-2 py-3 mb-4">
-        <h2 class="text-g font-bold mb-1">Agregar un medicamento</h2>
+      <div class="flex flex-col items-center border-b-2 border-t-2 py-3 my-4">
+        <h2 class="text-g font-bold mb-2">Agregar un medicamento</h2>
         <p class="text-s mb-2 text-center">Para añadir un medicamento, asegúrese de llenar de manera correcta todos los
           campos.</p>
       </div>
 
-      <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-4">
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-4 mt-10">
 
 
 
         <div class="flex flex-col">
-          <label for="ubicacion" class="block mb-1 text-s">¿Pastillas o mL ?</label>
+          <label for="ubicacion" class="block mb-1 text-m">¿Pastillas o mL ?</label>
           <div class="relative">
             <select id="ubicacion" name="ubicacion"
-              class="w-full h-10 appearance-none bg-white border border-gray-300 rounded-md px-3 pr-8 text-s focus:outline-none focus:ring-2 focus:ring-black">
+              class="w-full h-12 appearance-none bg-white border border-gray-300 rounded-md px-3 pr-8 text-s focus:outline-none focus:ring-2 focus:ring-black  transition duration-300 ease-in-out transform hover:scale-105">
               <option selected>Seleccione</option>
               <option value="pastillas">Pastillas</option>
               <option value="ml">mL</option>
@@ -100,48 +100,48 @@
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium">
+          <label class="mb-1 text-m font-medium">
             Nombre del medicamento o suplemento. <span class="text-red-500">*</span>
           </label>
-          <input type="text" name="nombreMed" id="nombreMed" required placeholder="Ej. Paracetamol."
-            class="w-full px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+          <input type="text"  name="nombreMed" id="nombreMed" required placeholder="Ej. Paracetamol."
+            class="w-full h-12 px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium">
+          <label class="mb-1 text-m font-medium">
             Cantidad de medicamento que contiene 1 caja. <span class="text-red-500">*</span>
           </label>
           <input type="number" name="cantidadUnaCaja" id="cantidadUnaCaja" required placeholder="Ej. 10."
-            class="w-full px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+            class="w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium">
+          <label class="mb-1 text-m font-medium">
             Cantidad de cajas que tiene. <span class="text-red-500">*</span>
           </label>
           <input type="number" name="cantidadUnaCaja" id="cantidadUnaCaja" required placeholder="Ej. 3."
-            class="w-full px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+            class="w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium animate-pulse">
+          <label class="mb-1 text-m font-medium animate-pulse">
             Caducidad del medicamento
           </label>
-          <input type="date" class="border rounded-md p-1.5 w-full text-s focus:ring-black" />
+          <input type="date" class="border h-12 rounded-md p-1.5 w-full text-s focus:ring-black  transition duration-300 ease-in-out transform hover:scale-105" />
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-s font-medium">Fecha fin de toma</label>
-          <input type="date" class="border rounded-md p-1.5 w-full text-s focus:ring-black" />
+          <label class="mb-1 text-m font-medium">Fecha fin de toma</label>
+          <input type="date" class="border h-12 rounded-md p-1.5 w-full text-s focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" />
         </div>
       </form>
 
-      <div class="flex justify-end">
+      <div class="flex justify-end mt-5">
         <button
-          class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 sm:px-8 py-2 overflow-hidden rounded-lg group bg-black text-white hover:text-white text-s">
+          class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 sm:px-8 py-2 overflow-hidden rounded-lg group bg-black text-white hover:text-white text-lg/6 shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
           <span
             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
-          <span class="relative transition-colors duration-200 ease-in-out z-10">
+          <span class="relative transition-colors duration-200  ease-in-out z-10">
             Agregar
           </span>
         </button>
