@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-export async function handleRegistro() {
+export async function handleRegistro(event) {
+  event.preventDefault(); // prevenir comportamiento predeterminado
 
   const usuario = document.getElementById("usuario").value;
   const correo = document.getElementById("email").value;
@@ -14,39 +15,30 @@ export async function handleRegistro() {
     "contrasena_confirmada"
   ).value;
 
-
-
-
   if (contrasena !== confirmarContrasena) {
-    alert("Las contraseñas no coinciden");
+    alert("las contraseñas no coinciden");
     return;
   }
 
   try {
+
     const response = await fetch("/api/registrar", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
-      body: JSON.stringify({ usuario, correo, contrasena })
+      body: JSON.stringify({ usuario, correo, contrasena }),
     });
 
-    const data = await response.json();
-
     if (response.ok) {
-
-      console.log("Registro exitoso");
-
-      window.location.href = "../HTML/login.html"; // redirigir a login si si jala el pedo
-
+      console.log("registro exitoso");
+      window.location.href = "../HTML/login.html"; // redirigir a la página de login
     } else {
-        alert(`Error en el registro: ${data.message}`);
+      const data = await response.json();
+      alert(`error en el registro: ${data.message}`);
     }
   } catch (error) {
-
-    console.error("Error:", error);
-
-    alert("Error en el registro. Por favor, intente nuevamente.");
-
+    console.error("error:", error);
+    alert("error en el registro. por favor, intente nuevamente.");
   }
 }
