@@ -12,41 +12,60 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(join(__dirname, "../public"))); 
+app.use(express.static(join(__dirname, "../public")));
 
 app.get("/", (req, res) => {
-  res.sendFile(join(__dirname, "../public/HTML/index.html")); 
+  res.sendFile(join(__dirname, "../public/HTML/index.html"), (err) => {
+    if (err) {
+      console.error("Error encontrando el archivo:", err);
+      res.status(err.status).end();
+    }
+  });
 });
 
 app.get("/login", (req, res) => {
-  res.sendFile(join(__dirname, "../public/HTML/login.html")); 
+  res.sendFile(join(__dirname, "../public/HTML/login.html"), (err) => {
+    if (err) {
+      console.error("Error encontrando el archivo:", err);
+      res.status(err.status).end();
+    }
+  });
 });
 
 app.get("/registro", (req, res) => {
-  res.sendFile(join(__dirname, "../public/HTML/registro.html")); 
+  res.sendFile(join(__dirname, "../public/HTML/registro.html"), (err) => {
+    if (err) {
+      console.error("Error encontrando el archivo:", err);
+      res.status(err.status).end();
+    }
+  });
 });
 
 // Rutas para la API
 app.post("/api/registrar", async (req, res) => {
-  const { nombreUser, correoUser, contra } = req.body;
+  const { usuario, correo, contrasena } = req.body;
 
+  // no lo creo necesario pq todos los campos son obligatorios
+//   if (!usuario || !correo || !contrasena) {
+//     return res.status(400).json({ //req 400 indica una peticion mala 
+//       success: false,
+//       message: "Todos los campos son obligatorios",
+//     });
+//   }
   try {
     const db = await connect();
+    
     const [result] = await db.execute(
       "INSERT INTO usuarios (nombre_usuario, correo, contrasena) VALUES (?, ?, ?)",
-      [nombreUser, correoUser, contra]
+      [usuario, correo, contrasena]
     );
+
     await db.end();
-    res.json({
-      success: true,
-      message: "Usuario registrado con éxito",
-      data: result,
-    });
+
   } catch (error) {
+
     console.error("Error al insertar datos:", error);
-    res
-      .status(500)
-      .json({ success: false, message: "Error al registrar usuario" });
+
   }
 });
 

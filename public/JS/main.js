@@ -1,21 +1,20 @@
-import { registrarUsuario } from './registrar.js';
+import { handleRegistro } from './registrar.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registroForm');
     form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         const nombreUser = document.getElementById("usuario").value;
-        const correoUser = document.getElementById("email").value;
-        const contra1 = document.getElementById("contraseña").value;
-        const contra2 = document.getElementById("contraseña_confirmada").value;
+        const correo = document.getElementById("email").value;
+        const contra1 = document.getElementById("contrasena").value;
+        const contra2 = document.getElementById("contrasena_confirmada").value;
 
         if (contra1 !== contra2) {
             alert("Las contraseñas no coinciden, reintentelo");
             return;
         }
-
         try {
-            await registrarUsuario(nombreUser, correoUser, contra1);
+            await handleRegistro(nombreUser, correo, contra1);
             alert("Usuario registrado con éxito");
         } catch (error) {
             console.error("Error al registrar usuario:", error);
