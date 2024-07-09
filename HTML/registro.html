@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regístrese</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/expres.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -31,7 +32,7 @@
         <!-- Sección izquierda (logo e imagen) -->
         <div class="w-full md:w-1/2 bg-cover bg-center h-64 md:h-auto relative">
             <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4">
-                <img src="/assets/assetsConcactUs/logo.jpg" class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
+                <img src="/assets/assetsConcactUs/LOGO_VECTORIZADOsvg.svg" class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
                 <div class="text-white text-center">
                     <h1 class="text-3xl md:text-5xl font-bold mb-2">Med & Track</h1>
                     <p class="text-lg md:text-xl">Su compañero de salud</p>
@@ -88,7 +89,7 @@
                 </div>
 
                 <div class="flex flex-col items-end">
-                    <button type="submit"
+                    <button type="submit" onclick="insertarDatos()"
                         class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 sm:px-8 py-2 overflow-hidden rounded-lg group bg-black text-white hover:text-white text-s mx-1 sm:mx-2 transition duration-300 ease-in-out transform hover:scale-105">
                         <span
                             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
