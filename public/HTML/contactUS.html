@@ -29,7 +29,7 @@
         <!-- Sección izquierda (logo e imagen) -->
         <div class="w-full md:w-1/2 bg-cover bg-center h-64 md:h-auto relative">
             <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4">
-                <img src="/assets/assetsConcactUs/logo.jpg" class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
+                <img src="/public/assetsConcactUs/LOGO_VECTORIZADOsvg.svg" class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
                 <div class="text-white text-center">
                     <h1 class="text-3xl md:text-5xl font-bold mb-2">Med & Track</h1>
                     <p class="text-lg md:text-xl">Su compañero de salud</p>
@@ -61,20 +61,20 @@
                     </label>
                     <div class="flex flex-wrap gap-4">
                         <label class="inline-flex items-center">
-                            <input type="radio" name="razon" value="queja"
-                                class="form-radio h-5 w-5 text-black transition duration-300 ease-in-out transform hover:scale-105"
+                            <input type="radio" name="razon" id="queja" value="queja"
+                                class="form-radio h-5 w-5 text-black  transition duration-300 ease-in-out transform hover:scale-110"
                                 required>
                             <span class="ml-2 text-base md:text-lg">Sugerencia</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="radio" name="razon" value="duda"
-                                class="form-radio h-5 w-5 text-black transition duration-300 ease-in-out transform hover:scale-105"
+                            <input type="radio" name="razon" id="duda" value="duda"
+                                class="form-radio h-5 w-5 text-black transition duration-300 ease-in-out transform hover:scale-110"
                                 required>
                             <span class="ml-2 text-base md:text-lg">Duda</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="radio" name="razon" value="aclaracion"
-                                class="form-radio h-5 w-5 text-black transition duration-300 ease-in-out transform hover:scale-105"
+                            <input type="radio" name="razon" id="aclaracion" value="aclaracion"
+                                class="form-radio h-5 w-5 text-black transition duration-300 ease-in-out transform hover:scale-110"
                                 required>
                             <span class="ml-2 text-base md:text-lg">Aclaración</span>
                         </label>
@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="flex flex-col items-end">
-                    <button type="submit"
+                    <button id="envioContacto" type="submit"
                         class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 py-3 overflow-hidden rounded-lg group bg-black text-white hover:text-white text-base md:text-lg transition duration-300 ease-in-out transform hover:scale-105">
                         <span
                             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>

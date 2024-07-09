@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Med & Track</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="../JS/main.js"></script>
-    <script type="module" src="../JS/login.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -33,8 +31,7 @@
         <!-- Sección izquierda (imagen de fondo) -->
         <div class="w-full md:w-1/2 bg-cover bg-center h-64 md:h-auto relative">
             <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4">
-                <img src="../assetsConcactUs/LOGO_VECTORIZADOsvg.svg"
-                    class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
+                <img src="/public/assetsConcactUs/LOGO_VECTORIZADOsvg.svg" class="h-32 w-32 rounded-full object-cover  shadow-lg mb-4">
                 <div class="text-white text-center">
                     <h1 class="text-3xl md:text-5xl font-bold mb-2">Med & Track</h1>
                     <p class="text-lg md:text-xl">Su compañero de salud</p>
@@ -46,7 +43,7 @@
         <div class="w-full md:w-1/2 bg-custom-form p-6 md:p-8 lg:p-12 flex flex-col justify-center">
             <div>
                 <h2 class="text-2xl md:text-4xl font-bold mb-6 md:mb-8">¡Bienvenido de nuevo!</h2>
-                <p class="mb-8 text-xl">¿No tiene una cuenta? <a href="/HTML/registro.html"
+                <p class="mb-8 text-xl">¿No tiene una cuenta? <a href="/public/HTML/registro.html"
                         class="text-blue-600 font-roboto italic hover:not-italic hover:text-black hover:ease-in-out hover:duration-300">Registrese
                         aqui
                     </a>
@@ -54,7 +51,7 @@
             </div>
 
 
-            <form class="space-y-5 md:space-y-7" id="loginForm">
+            <form class="space-y-5 md:space-y-7">
 
                 <div>
                     <label class="block text-lg md:text-xl font-medium text-gray-700 mb-1">
@@ -69,17 +66,18 @@
                     <label class="block text-lg md:text-xl font-medium text-gray-700 mb-1">
                         Contraseña <span class="text-red-500">*</span>
                     </label>
-                    <input type="password" name="contraseña" id="contrasena" required
+                    <input type="password" name="contraseña" id="contraseña" required
                         placeholder="Ingrese su contraseña."
                         class="w-full px-3 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
                 </div>
 
                 <div class="flex flex-col items-end">
-                    <button type="submit"
+                    <button type="submit" 
+                    id="envioLogin"
                         class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 sm:px-8 py-2 overflow-hidden rounded-lg group bg-black text-white hover:text-white text-s mx-1 sm:mx-2 transition duration-300 ease-in-out transform hover:scale-105">
                         <span
                             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
-                        <span class="relative transition-colors duration-200 ease-in-out z-10" href="#">
+                        <span class="relative transition-colors duration-200 ease-in-out z-10" href="/public/HTML/agregarMed.html">
                             Inicie sesión
                         </span>
                     </button>

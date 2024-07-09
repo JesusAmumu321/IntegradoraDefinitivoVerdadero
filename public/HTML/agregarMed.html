@@ -37,15 +37,15 @@
 
       <div class="logo flex items-center flex-grow mb-2 sm:mb-0">
         <a href="/HTML/mainPage.html" class="flex flex-row items-start">
-          <img src="/assets/assetsConcactUs/logo.png" alt="logo" class="h-12 mr-1">
-          <h1 class="text-m font-bold mt-2">Med & Track</h1>
+          <img src="/public/assetsConcactUs/LOGO_VECTORIZADOsvg.svg" alt="logo" class="h-12 mr-1">
+          <h1 class="text-2xl font-bold mt-2 ml-3">Med & Track</h1>
         </a>
       </div>
 
       <nav class="navegacion w-full sm:w-auto mb-2 sm:mb-0 order-3 sm:order-2">
-        <a href="/HTML/contactUS.html"
+        <a id="contactUS" href="/public/HTML/contactUS.html"
           class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">Contáctenos</a>
-        <a href="https://www.utch.edu.mx"
+        <a id="utch" href="https://www.utch.edu.mx"
           class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">UTCH</a>
       </nav>
 <!-- 
@@ -67,7 +67,7 @@
         <div class="inline-flex bg-gray-100 rounded-lg  overflow-hidden">
           <a class="bg-white border-solid border-2 rounded-lg border-bg-personalizado px-4 py-1.5 text-gray-600 text-m">Agregar
             Medicamento</a>
-          <a href="/HTML/table.html"
+          <a href="/public/HTML/tablaMed.html"
             class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Sus
             Medicamentos</a>
           <a href="#"
@@ -93,8 +93,10 @@
             <select id="ubicacion" name="ubicacion"
               class="w-full h-12 appearance-none bg-white border border-gray-300 rounded-md px-3 pr-8 text-s focus:outline-none focus:ring-2 focus:ring-black  transition duration-300 ease-in-out transform hover:scale-105">
               <option selected>Seleccione</option>
-              <option value="pastillas">Pastillas</option>
-              <option value="ml">mL</option>
+              <option id="tipoPastillas" name="tipoPastilla"
+              value="pastillas">Pastillas</option>
+              <option id="tipoMililitro" name="tipoMililitro"
+              value="ml">mL</option>
             </select>
           </div>
         </div>
@@ -127,17 +129,18 @@
           <label class="mb-1 text-m font-medium animate-pulse">
             Caducidad del medicamento
           </label>
-          <input type="date" class="border h-12 rounded-md p-1.5 w-full text-s focus:ring-black  transition duration-300 ease-in-out transform hover:scale-105" />
+          <input type="date" id="caducidadMed" name="caducidadMed" class="border h-12 rounded-md p-1.5 w-full text-s focus:ring-black  transition duration-300 ease-in-out transform hover:scale-105" />
         </div>
 
         <div class="flex flex-col">
           <label class="mb-1 text-m font-medium">Fecha fin de toma</label>
-          <input type="date" class="border h-12 rounded-md p-1.5 w-full text-s focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" />
+          <input type="date" id="ultimaToma" name="ultimaToma" class="border h-12 rounded-md p-1.5 w-full text-s focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" />
         </div>
       </form>
 
       <div class="flex justify-end mt-5">
         <button
+        id="envioMedicamento" name="envioMedicamento"
           class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 sm:px-8 py-2 overflow-hidden rounded-lg group bg-black text-white hover:text-white text-lg/6 shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
           <span
             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
