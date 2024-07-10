@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
 async function handleLogin(event) {
   event.preventDefault();
 
-  const correo = document.getElementById("email").value;
-  const contrasena = document.getElementById("contraseña").value;
+  const correo = document.getElementById("correo").value;
+  const contrasena = document.getElementById("contrasena").value;
 
   try {
-    const response = await fetch("/api/login", {
+    const response = await fetch("/api/iniciar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,12 +22,11 @@ async function handleLogin(event) {
 
     const data = await response.json();
 
-    if (response.ok) {
+    if (response.ok && data.autenticado) {
       alert("Inicio de sesión exitoso");
-      // Aquí puedes redirigir al usuario a la página principal o dashboard
-      window.location.href = "/dashboard.html";
+      window.location.href = "../HTML/agregarMed.html";
     } else {
-      alert(`Error en el inicio de sesión: ${data.message}`);
+      alert(`Error en el inicio de sesión: ${data.mensaje}`);
     }
   } catch (error) {
     console.error("Error:", error);
