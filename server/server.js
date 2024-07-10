@@ -10,6 +10,7 @@ const __dirname = dirname(__filename);
 const app = express();
 
 // middleware
+// con esto las cosas se comunican bien
 app.use(cors());
 app.use(express.json());
 app.use(express.static(join(__dirname, "../public")));
