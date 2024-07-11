@@ -16,12 +16,15 @@ export async function handleRegistro(event) {
   ).value;
 
   if (contrasena !== confirmarContrasena) {
-    alert("las contraseñas no coinciden");
+    console.error("Error durante el proceso de inicio de sesión.");
+    Swal.fire({
+      icon: "warning",
+      title: "Las contraseñas no coinciden. Por favor, intente nuevamente."
+    });
     return;
   }
 
   try {
-
     const response = await fetch("/api/registrar", {
       method: "POST",
       headers: {
@@ -30,15 +33,34 @@ export async function handleRegistro(event) {
       body: JSON.stringify({ usuario, correo, contrasena }),
     });
 
+    console.log("Respuesta recibida:", response);
+    const data = await response.json();
+    console.log("Datos de respuesta:", data);
+    console.log("registro exitoso");
+
     if (response.ok) {
-      console.log("registro exitoso");
-      window.location.href = "../HTML/login.html"; // redirigir a la página de login
+      Swal.fire({
+        icon: "success",
+        title: "Registro exitoso, redirigiendo...",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        // el then es para q despues de q se haga el if, se hace esto, es para q salga la alerta bn
+        window.location.href = "../HTML/login.html";
+      });
     } else {
-      const data = await response.json();
-      alert(`error en el registro: ${data.message}`);
+      Swal.fire({
+        icon: "error",
+        title: "Error al momento de registrarse.",
+        text: `Motivo del error: ${data.mensaje}`,
+      });
     }
   } catch (error) {
-    console.error("error:", error);
-    alert("error en el registro. por favor, intente nuevamente.");
+    console.error("Error durante el proceso de registrarse.", error);
+    Swal.fire({
+      icon: "error",
+      title: "Error al registrarse. Por favor, intente nuevamente.",
+      text: `Motivo del error: ${error}`,
+    });
   }
 }
