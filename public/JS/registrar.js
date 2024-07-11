@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 export async function handleRegistro(event) {
-  event.preventDefault(); // prevenir comportamiento predeterminado
+  event.preventDefault();
 
   const usuario = document.getElementById("usuario").value;
   const correo = document.getElementById("email").value;
@@ -16,10 +16,10 @@ export async function handleRegistro(event) {
   ).value;
 
   if (contrasena !== confirmarContrasena) {
-    console.error("Error durante el proceso de inicio de sesión.");
     Swal.fire({
       icon: "warning",
-      title: "Las contraseñas no coinciden. Por favor, intente nuevamente."
+      title: "Las contraseñas no coinciden. Por favor, intente nuevamente.",
+      allowOutsideClick: false,
     });
     return;
   }
@@ -33,10 +33,7 @@ export async function handleRegistro(event) {
       body: JSON.stringify({ usuario, correo, contrasena }),
     });
 
-    console.log("Respuesta recibida:", response);
     const data = await response.json();
-    console.log("Datos de respuesta:", data);
-    console.log("registro exitoso");
 
     if (response.ok) {
       Swal.fire({
@@ -44,8 +41,14 @@ export async function handleRegistro(event) {
         title: "Registro exitoso, redirigiendo...",
         showConfirmButton: false,
         timer: 1500,
+         /*
+        Estos tres de abajo sirven para que no se pueda hacer clic afuera de la alerta
+        para quitarla, al igual q en con el escape o con el enter y ya
+        */
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
       }).then(() => {
-        // el then es para q despues de q se haga el if, se hace esto, es para q salga la alerta bn
         window.location.href = "../HTML/login.html";
       });
     } else {
@@ -53,6 +56,8 @@ export async function handleRegistro(event) {
         icon: "error",
         title: "Error al momento de registrarse.",
         text: `Motivo del error: ${data.mensaje}`,
+        // esto es pa q no se pueda quitar la alerta si lepicas afuera de la misam
+        allowOutsideClick: false,
       });
     }
   } catch (error) {
@@ -61,6 +66,7 @@ export async function handleRegistro(event) {
       icon: "error",
       title: "Error al registrarse. Por favor, intente nuevamente.",
       text: `Motivo del error: ${error}`,
+      allowOutsideClick: false,
     });
   }
 }

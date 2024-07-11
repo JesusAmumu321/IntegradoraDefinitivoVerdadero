@@ -5,7 +5,6 @@ async function handleLogin(event) {
   const contrasena = document.getElementById("contrasena").value;
 
   try {
-    console.log("iniciando solicitud para el inico");
     const response = await fetch("/api/iniciar", {
       method: "POST",
       headers: {
@@ -14,46 +13,46 @@ async function handleLogin(event) {
       body: JSON.stringify({ correo, contrasena }),
     });
 
-    
-    console.log("Respuesta recibida:", response);
     const data = await response.json();
-    // && data.autenticado
-
-    // lo de arriba se puede poner para asegurarse mejor de q las credenciales son correctas
 
     if (response.ok) {
-      console.log("Autenticación exitosa, mostrando alerta");
       Swal.fire({
         icon: "success",
         title: "Inicio de sesión exitoso, redirigiendo...",
         showConfirmButton: false,
         timer: 1500,
-      }).then(() => { // el then es para q despues de q se haga el if, se hace esto, es para q salga la alerta bn
+        /*
+        Estos tres de abajo sirven para que no se pueda hacer clic afuera de la alerta
+        para quitarla, al igual q en con el escape o con el enter y ya
+        */
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+      }).then(() => {
         window.location.href = "../HTML/agregarMed.html";
       });
-
     } else {
       Swal.fire({
         icon: "error",
         title: "Error al inicio de sesión",
         text: `Motivo del error: ${data.mensaje}`,
+        // esto es pa q no se pueda quitar la alerta si lepicas afuera de la misam
+        allowOutsideClick: false,
       });
     }
-
   } catch (error) {
     console.error("Error durante el proceso de inicio de sesión.", error);
     Swal.fire({
       icon: "error",
       title: "Error al inicio de sesión. Por favor, intente nuevamente.",
       text: `Motivo del error: ${error}`,
+      allowOutsideClick: false,
     });
   }
 }
-// Para depurar posibles errores
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("loginForm");
   if (form) {
-    console.log("Formulario encontrado, agregando evento submit");
     form.addEventListener("submit", handleLogin);
   } else {
     console.error("No se encontró el formulario con ID 'loginForm'");
