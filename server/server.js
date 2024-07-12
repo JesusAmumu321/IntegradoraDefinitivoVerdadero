@@ -85,14 +85,8 @@ app.post("/api/iniciar", async (req, res) => {
 
   try {
     const db = await connect();
-<<<<<<< HEAD
     const [rows] = await db.execute("SELECT * FROM usuarios WHERE correo = ?", [correo]);
     
-=======
-    const [rows] = await db.execute("SELECT * FROM usuarios WHERE correo = ?", [
-      correo,
-    ]);
->>>>>>> parent of 4cf964d (agrgacion falta vincular bien)
     await db.end();
 
     if (rows.length > 0) {
