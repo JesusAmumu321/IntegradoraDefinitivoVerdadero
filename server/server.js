@@ -108,6 +108,7 @@ app.post("/api/iniciar", async (req, res) => {
   try {
     const db = await connect();
     const [rows] = await db.execute("SELECT * FROM usuarios WHERE correo = ?", [correo]);
+    
     await db.end();
     if (rows.length > 0) {
       const user = rows[0];
