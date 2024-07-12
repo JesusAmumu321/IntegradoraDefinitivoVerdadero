@@ -12,7 +12,7 @@ export async function registrarUsuario(nombreUser, correoUser, contra) {
       throw new Error("Error en la respuesta del servidor");
     }
 
-    constresult = await response.json();
+    const result = await response.json();
     console.log("Datos insertados: ", result);
     return result;
   } catch (error) {
