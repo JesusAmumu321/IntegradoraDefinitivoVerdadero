@@ -24,7 +24,23 @@ export async function handleRegistro(event) {
     return;
   }
 
+  const checkEmailResponse = await fetch("/api/verificar-correo", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ correo }),
+  });
+
   try {
+    const responseEmail = await fetch("/api/verificar-correo", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ correo }),
+    });
+
     const response = await fetch("/api/registrar", {
       method: "POST",
       headers: {
@@ -32,6 +48,23 @@ export async function handleRegistro(event) {
       },
       body: JSON.stringify({ usuario, correo, contrasena }),
     });
+
+    const checkEmailData = await responseEmail.json();
+
+    // ?
+    if (!responseEmail.ok) {
+      throw new Error(checkEmailData.mensaje || "Error al verificar el correo");
+    }
+
+    if (checkEmailData.existe) {
+      Swal.fire({
+        icon: "error",
+        title: "El correo ya está registrado",
+        text: "Por favor, utilice otro correo electrónico.",
+        allowOutsideClick: false,
+      });
+      return;
+    }
 
     const data = await response.json();
 
@@ -41,7 +74,7 @@ export async function handleRegistro(event) {
         title: "Registro exitoso, redirigiendo...",
         showConfirmButton: false,
         timer: 1500,
-         /*
+        /*
         Estos tres de abajo sirven para que no se pueda hacer clic afuera de la alerta
         para quitarla, al igual q en con el escape o con el enter y ya
         */

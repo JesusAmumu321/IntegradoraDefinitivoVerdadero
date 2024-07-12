@@ -10,7 +10,6 @@ const __dirname = dirname(__filename);
 const app = express();
 
 // middleware
-// con esto las cosas se comunican bien
 app.use(cors());
 app.use(express.json());
 app.use(express.static(join(__dirname, "../public")));
@@ -42,7 +41,23 @@ app.get("/registro", (req, res) => {
   });
 });
 
-// ------------------------------------------------------------
+app.post("/api/verificar-correo", async (req, res) => {
+  const { correo } = req.body;
+
+  try {
+    const db = await connect();
+    const [rows] = await db.execute("SELECT * FROM usuarios WHERE correo = ?", [
+      correo,
+    ]);
+    await db.end();
+
+    res.json({ existe: rows.length > 0 });
+    
+  } catch (error) {
+    console.error("Error al verificar el correo:", error);
+    res.status(500).json({ mensaje: "Error al verificar el correo" });
+  }
+});
 
 app.post("/api/registrar", async (req, res) => {
   const { usuario, correo, contrasena } = req.body;
@@ -64,8 +79,6 @@ app.post("/api/registrar", async (req, res) => {
       .json({ success: false, message: "Error al registrar usuario" });
   }
 });
-
-// -------------------------------------------------------------------------------------
 
 app.post("/api/iniciar", async (req, res) => {
   const { correo, contrasena } = req.body;
@@ -98,7 +111,6 @@ app.post("/api/iniciar", async (req, res) => {
       .json({ autenticado: false, mensaje: "Error al iniciar sesión" });
   }
 });
-// ----------------------------------------------
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
