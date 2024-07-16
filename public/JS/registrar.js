@@ -32,11 +32,7 @@ export async function handleRegistro(event) {
     body: JSON.stringify({ correo }),
   });
 
-  if(req.body.password && req.body.password.length > 6) {
-
-} else {
-    throw new Error ('your password must be less than 6 characters')
-}
+  
 
   try {
     const responseEmail = await fetch("/api/verificar-correo", {
