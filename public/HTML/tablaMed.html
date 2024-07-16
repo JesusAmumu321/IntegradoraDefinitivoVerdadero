@@ -1,91 +1,132 @@
 <!DOCTYPE html>
 <html lang="es-ES" class="h-full w-full">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sus medicamentos - Med & Track</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    backgroundColor: {
-                        'bg-personalizado': '#b8d5db',
-                        'hd-personalizado': '#d9d9d9',
-                    },
-                    fontSize: {
-                        'g': 'clamp(1rem, 2vw, 2.25rem)',
-                        'm': 'clamp(0.75rem, 1.5vw, 1.5rem)',
-                        's': 'clamp(0.50rem, 1vw, 1.2rem)',
-                    },
-                    fontFamily: {
-                        'roboto': ['Roboto', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            backgroundColor: {
+              "bg-personalizado": "#b8d5db",
+              "hd-personalizado": "#d9d9d9",
+            },
+            fontSize: {
+              g: "clamp(1rem, 2vw, 2.25rem)",
+              m: "clamp(0.75rem, 1.5vw, 1.5rem)",
+              s: "clamp(0.50rem, 1vw, 1.2rem)",
+            },
+            fontFamily: {
+              roboto: ["Roboto", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
     <script src="../JS/table.js" defer></script>
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-x-hidden font-roboto">
-    <div id="divGeneral"
-        class="relative w-[98vw] min-h-[96vh] flex flex-col my-[2vh] mx-auto bg-gray-100 p-2.5 box-border rounded">
-        <header
-            class="flex flex-wrap items-center p-4 bg-hd-personalizado w-full box-border relative top-0 left-0 min-h-[5rem] rounded">
-
-            <div class="logo flex items-center flex-grow mb-2 sm:mb-0">
-                <a href="../HTML/mainPage.html" class="flex flex-row items-start">
-                    <img src="../assets/LOGO_VECTORIZADOsvg.svg" alt="logo" class="h-12 mr-1">
-                    <h1 class="text-m font-bold mt-2">Med & Track</h1>
-                </a>
-            </div>
-
-            <nav class="navegacion w-full sm:w-auto mb-2 sm:mb-0 order-3 sm:order-2">
-                <a href="../HTML/contactUS.html"
-                    class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">Contáctenos</a>
-                <a href="https://www.utch.edu.mx"
-                    class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">UTCH</a>
-            </nav>
-        </header>
-
-        <div class="flex-1 flex flex-col p-5 bg-white overflow-x-auto">
-            <div class="my-3">
-                <div class="inline-flex bg-gray-100 rounded-lg overflow-hidden">
-                    <a href="../HTML/agregarMed.html"
-                        class="px-4 py-2 text-m  hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors rounded-md">Agregar
-                        Medicamento</a>
-                    <a class="bg-white border-solid border-2 rounded-lg border-bg-personalizado px-4 py-1.5 text-gray-600 text-m ">Sus Medicamentos</a>
-                    <a href="../HTML/calendario.html"
-                        class="px-4 py-2 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors rounded-md ">Calendario</a>
-                </div>
-            </div>
-            <div class="flex flex-col items-center border-b-2 border-t-2 py-3 my-4">
-                <h2 class="text-g font-bold mb-1">Visualice sus Medicamentos</h2>
-            </div>
-            <section class="flex-1 flex justify-center items-center p-5 bg-gray-100 overflow-x-auto">
-                <div class="w-full h-full">
-                    <div class="overflow-x-auto h-full">
-                        <table class="w-full h-full table-auto border-collapse border mb-2 text-m">
-                            <thead class="bg-gray-800 text-white">
-                                <tr>
-                                    <th class="border border-gray-300 p-2 text-center">Medicamento</th>
-                                    <th class="border border-gray-300 p-2 text-center">Caducidad</th>
-                                    <th class="border border-gray-300 p-2 text-center">Cantidad de la caja</th>
-                                    <th class="border border-gray-300 p-2 text-center">Dosis</th>
-                                    <th class="border border-gray-300 p-2 text-center">Próximo consumo</th>
-                                    <th class="border border-gray-300 p-2 text-center">Fin de consumo</th>
-                                </tr>
-                            </thead>
-                            <tbody id="laTablona" >
-                                <!-- Aquí se insertarán las filas de la tabla dinámicamente -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
+  <body class="min-h-screen bg-bg-personalizado font-roboto">
+    <div
+      id="divGeneral"
+      class="max-w-6xl mx-auto my-4 bg-gray-100 p-2.5 rounded shadow-lg min-h-[96vh]"
+    >
+      <header
+        class="flex flex-wrap items-center p-4 bg-hd-personalizado rounded mb-4 min-h-[5rem]"
+      >
+        <div class="logo flex items-center flex-grow mb-2 sm:mb-0">
+          <a href="../HTML/mainPage.html" class="flex flex-row items-start">
+            <img
+              src="../assets/LOGO_VECTORIZADOsvg.svg"
+              alt="logo"
+              class="h-12 mr-1"
+            />
+            <h1 class="text-2xl font-bold mt-2 ml-3">Med & Track</h1>
+          </a>
         </div>
+
+        <nav
+          class="navegacion w-full sm:w-auto mb-2 sm:mb-0 order-3 sm:order-2"
+        >
+          <a
+            href="../HTML/contactUS.html"
+            class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic"
+            >Contáctenos</a
+          >
+          <a
+            href="https://www.utch.edu.mx"
+            class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic"
+            >UTCH</a
+          >
+        </nav>
+      </header>
+
+      <section class="bg-white p-5 rounded flex-1 flex flex-col">
+        <div class="mb-4">
+          <div class="inline-flex bg-gray-100 rounded-lg overflow-hidden">
+            <a
+              href="../HTML/agregarMed.html"
+              class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded"
+              >Agregar Medicamento</a
+            >
+            <a
+              class="bg-white border-solid border-2 rounded-lg border-bg-personalizado px-4 py-1.5 text-gray-600 text-m"
+              >Sus Medicamentos</a
+            >
+            <a
+              href="../HTML/calendario.html"
+              class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded"
+              >Calendario</a
+            >
+          </div>
+        </div>
+        <div class="flex flex-col items-center border-b-2 border-t-2 py-3 my-4">
+          <h2 class="text-g font-bold mb-1">Visualice sus Medicamentos</h2>
+        </div>
+        <div
+          class="flex-1 flex justify-center items-center p-5 bg-gray-100 overflow-x-auto"
+        >
+          <div class="w-full h-full">
+            <div class="overflow-x-auto h-full">
+              <table
+                class="w-full h-full table-auto border-collapse border mb-2 text-m"
+              >
+                <thead class="bg-gray-800 text-white">
+                  <tr>
+                    <th class="border border-gray-300 p-2 text-center">
+                      Medicamento
+                    </th>
+                    <th class="border border-gray-300 p-2 text-center">
+                      Caducidad
+                    </th>
+                    <th class="border border-gray-300 p-2 text-center">
+                      Cantidad de la caja
+                    </th>
+                    <th class="border border-gray-300 p-2 text-center">
+                      Dosis
+                    </th>
+                    <th class="border border-gray-300 p-2 text-center">
+                      Próximo consumo
+                    </th>
+                    <th class="border border-gray-300 p-2 text-center">
+                      Fin de consumo
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="laTablona">
+                  <!-- Aquí se insertarán las filas de la tabla dinámicamente -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-</body>
+  </body>
 </html>
