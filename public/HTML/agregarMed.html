@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agregar medicamento - Med & Track</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
+  <script type="text/javascript" src="../JS/agregarMed.js"></script>  <script>
     tailwind.config = {
       theme: {
         extend: {
@@ -36,14 +36,14 @@
       class="flex flex-wrap items-center p-4 bg-hd-personalizado w-full box-border relative top-0 left-0 min-h-[5rem] rounded">
 
       <div class="logo flex items-center flex-grow mb-2 sm:mb-0">
-        <a href="/HTML/mainPage.html" class="flex flex-row items-start">
-          <img src="/public/assetsConcactUs/LOGO_VECTORIZADOsvg.svg" alt="logo" class="h-12 mr-1">
+        <a href="../HTML/mainPage.html" class="flex flex-row items-start">
+          <img src="../assets/LOGO_VECTORIZADOsvg.svg" alt="logo" class="h-12 mr-1">
           <h1 class="text-2xl font-bold mt-2 ml-3">Med & Track</h1>
         </a>
       </div>
 
       <nav class="navegacion w-full sm:w-auto mb-2 sm:mb-0 order-3 sm:order-2">
-        <a id="contactUS" href="/public/HTML/contactUS.html"
+        <a id="contactUS" href=../HTML/contactUS.html"
           class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">Contáctenos</a>
         <a id="utch" href="https://www.utch.edu.mx"
           class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">UTCH</a>
@@ -67,15 +67,13 @@
         <div class="inline-flex bg-gray-100 rounded-lg  overflow-hidden">
           <a class="bg-white border-solid border-2 rounded-lg border-bg-personalizado px-4 py-1.5 text-gray-600 text-m">Agregar
             Medicamento</a>
-          <a href="/public/HTML/tablaMed.html"
+            <a href="../HTML/tablaMed.html"
             class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Sus
             Medicamentos</a>
           <a href="#"
             class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Calendario</a>
         </div>
       </div>
-
-
 
       <div class="flex flex-col items-center border-b-2 border-t-2 py-3 my-4">
         <h2 class="text-g font-bold mb-2">Agregar un medicamento</h2>
@@ -84,29 +82,42 @@
       </div>
 
       <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-4 mt-10">
-
-
-
         <div class="flex flex-col">
-          <label for="ubicacion" class="block mb-1 text-m">¿Pastillas o mL ?</label>
+          <label for="ubicacion" id="" class="block mb-1 text-m">¿Pastillas o Mililitro?<span class="text-red-500"> *</span></label>
           <div class="relative">
-            <select id="ubicacion" name="ubicacion"
-              class="w-full h-12 appearance-none bg-white border border-gray-300 rounded-md px-3 pr-8 text-s focus:outline-none focus:ring-2 focus:ring-black  transition duration-300 ease-in-out transform hover:scale-105">
-              <option selected>Seleccione</option>
-              <option id="tipoPastillas" name="tipoPastilla"
-              value="pastillas">Pastillas</option>
-              <option id="tipoMililitro" name="tipoMililitro"
-              value="ml">mL</option>
-            </select>
-          </div>
+            <select id="tipo_medicamento" name="tipo_medicamento"
+            class="w-full h-12 bg-white border border-gray-300 rounded-md px-3 pr-8 text-s focus:outline-none focus:ring-2 focus:ring-black  transition duration-300 ease-in-out transform hover:scale-105">
+            <option selected>Seleccione</option>
+            <option id="tipoPastillas" name="tipoPastilla"
+            value="pastillas">Pastillas</option>
+            <option id="tipoMililitro" name="tipoMililitro"
+            value="ml">Mililitro</option>
+          </select>
         </div>
+      </div>
+      
+      <div class="flex flex-col">
+        <label class="mb-1 text-m font-medium">
+          ¿Frecuencia de su dosis? (En horas)<span class="text-red-500"> *</span>
+        </label>
+        <input type="number" name="frecuenciaToma" id="frecuenciaToma" required placeholder="Ej. 8."
+        class="w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+      </div>
+      
+      <div class="flex flex-col">
+        <label class="mb-1 text-m font-medium">
+          Nombre del medicamento o suplemento. <span class="text-red-500">*</span>
+        </label>
+        <input type="text"  name="nombreMed" id="nombreMed" required placeholder="Ej. Paracetamol."
+          class="w-full h-12 px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+      </div>
 
-        <div class="flex flex-col">
-          <label class="mb-1 text-m font-medium">
-            Nombre del medicamento o suplemento. <span class="text-red-500">*</span>
+      <div class="flex flex-col">
+        <label class="mb-1 text-m font-medium">
+          Cantidad de pastillas por dosis <span class="text-red-500">*</span>
           </label>
-          <input type="text"  name="nombreMed" id="nombreMed" required placeholder="Ej. Paracetamol."
-            class="w-full h-12 px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+          <input type="number" name="cantidadDosis" id="cantidadDosis" required placeholder="Ej. 1."
+            class="w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
         <div class="flex flex-col">
@@ -121,7 +132,7 @@
           <label class="mb-1 text-m font-medium">
             Cantidad de cajas que tiene. <span class="text-red-500">*</span>
           </label>
-          <input type="number" name="cantidadUnaCaja" id="cantidadUnaCaja" required placeholder="Ej. 3."
+          <input type="number" name="cantidadCajas" id="cantidadCajas" required placeholder="Ej. 3."
             class="w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
@@ -140,7 +151,7 @@
 
       <div class="flex justify-end mt-5">
         <button
-        id="envioMedicamento" name="envioMedicamento"
+        id="envioMedicamento" name="envioMedicamento" 
           class="w-full sm:w-auto relative inline-flex items-center justify-center px-6 sm:px-8 py-2 overflow-hidden rounded-lg group bg-black text-white hover:text-white text-lg/6 shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
           <span
             class="absolute w-0 h-0 transition-all duration-500 ease-out bg-gray-700 rounded-full group-hover:w-56 group-hover:h-56"></span>
@@ -151,6 +162,7 @@
       </div>
     </section>
   </div>
+  
 </body>
 
 </html>
