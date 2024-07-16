@@ -26,7 +26,7 @@
             }
         }
     </script>
-    <script src="/JS/table.js" defer></script>
+    <script src="../JS/table.js" defer></script>
 </head>
 
 <body class="m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-x-hidden font-roboto">
@@ -36,14 +36,14 @@
             class="flex flex-wrap items-center p-4 bg-hd-personalizado w-full box-border relative top-0 left-0 min-h-[5rem] rounded">
 
             <div class="logo flex items-center flex-grow mb-2 sm:mb-0">
-                <a href="/HTML/mainPage.html" class="flex flex-row items-start">
-                    <img src="/assets/assetsConcactUs/logo.png" alt="logo" class="h-12 mr-1">
+                <a href="../HTML/mainPage.html" class="flex flex-row items-start">
+                    <img src="../assets/LOGO_VECTORIZADOsvg.svg" alt="logo" class="h-12 mr-1">
                     <h1 class="text-m font-bold mt-2">Med & Track</h1>
                 </a>
             </div>
 
             <nav class="navegacion w-full sm:w-auto mb-2 sm:mb-0 order-3 sm:order-2">
-                <a href="/HTML/contactUS.html"
+                <a href="../HTML/contactUS.html"
                     class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">Contáctenos</a>
                 <a href="https://www.utch.edu.mx"
                     class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">UTCH</a>
@@ -53,11 +53,11 @@
         <div class="flex-1 flex flex-col p-5 bg-white overflow-x-auto">
             <div class="my-3">
                 <div class="inline-flex bg-gray-100 rounded-lg overflow-hidden">
-                    <a href="/HTML/agregarMed.html"
+                    <a href="../HTML/agregarMed.html"
                         class="px-4 py-2 text-m  hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors rounded-md">Agregar
                         Medicamento</a>
                     <a class="bg-white border-solid border-2 rounded-lg border-bg-personalizado px-4 py-1.5 text-gray-600 text-m ">Sus Medicamentos</a>
-                    <a href="/HTML/calendario.html"
+                    <a href="../HTML/calendario.html"
                         class="px-4 py-2 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors rounded-md ">Calendario</a>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <section class="flex-1 flex justify-center items-center p-5 bg-gray-100 overflow-x-auto">
                 <div class="w-full h-full">
                     <div class="overflow-x-auto h-full">
-                        <table class="w-full h-full table-auto border-collapse border mb-2 text-s">
+                        <table class="w-full h-full table-auto border-collapse border mb-2 text-m">
                             <thead class="bg-gray-800 text-white">
                                 <tr>
                                     <th class="border border-gray-300 p-2 text-center">Medicamento</th>
@@ -78,7 +78,7 @@
                                     <th class="border border-gray-300 p-2 text-center">Fin de consumo</th>
                                 </tr>
                             </thead>
-                            <tbody id="laTablona">
+                            <tbody id="laTablona" >
                                 <!-- Aquí se insertarán las filas de la tabla dinámicamente -->
                             </tbody>
                         </table>
@@ -88,5 +88,4 @@
         </div>
     </div>
 </body>
-
 </html>
