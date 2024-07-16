@@ -35,7 +35,7 @@ async function handleLogin(event) {
       Swal.fire({
         icon: "error",
         title: "Error al inicio de sesión",
-        text: `Motivo del error: ${data.mensaje}`,
+        text: `${data.mensaje}`,
         // esto es pa q no se pueda quitar la alerta si lepicas afuera de la misam
         allowOutsideClick: false,
       });
@@ -45,7 +45,7 @@ async function handleLogin(event) {
     Swal.fire({
       icon: "error",
       title: "Error al inicio de sesión. Por favor, intente nuevamente.",
-      text: `Motivo del error: ${error}`,
+      text: `${error}`,
       allowOutsideClick: false,
     });
   }

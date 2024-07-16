@@ -90,7 +90,7 @@ export async function handleRegistro(event) {
       Swal.fire({
         icon: "error",
         title: "Error al momento de registrarse.",
-        text: `Motivo del error: ${data.mensaje}`,
+        text: `${data.mensaje}`,
         // esto es pa q no se pueda quitar la alerta si lepicas afuera de la misam
         allowOutsideClick: false,
       });
@@ -100,7 +100,7 @@ export async function handleRegistro(event) {
     Swal.fire({
       icon: "error",
       title: "Error al registrarse. Por favor, intente nuevamente.",
-      text: `Motivo del error: ${error}`,
+      text: `${error}`,
       allowOutsideClick: false,
     });
   }
