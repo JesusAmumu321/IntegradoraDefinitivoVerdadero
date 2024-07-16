@@ -1,5 +1,4 @@
 function inicializarFormularioMedicamentos() {
-  
   const tipoMedicamento = document.getElementById("tipo_medicamento");
   const cantidadDosisLabel = document.querySelector(
     'label[for="cantidadDosis"]'
@@ -82,7 +81,6 @@ function inicializarFormularioMedicamentos() {
 }
 
 // Inicializar cuando el DOM esté listo
-document.addEventListener(
-  "DOMContentLoaded",
-  inicializarFormularioMedicamentos
-);
+document.addEventListener("DOMContentLoaded", function () {
+  inicializarFormularioMedicamentos();
+});
