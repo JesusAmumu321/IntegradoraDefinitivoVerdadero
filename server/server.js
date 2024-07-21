@@ -166,3 +166,13 @@ app.get("/getMedicamentos", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+
+
+app.get("/api/calendario", (req, res) => {
+  res.sendFile(join(__dirname, "../public/HTML/calendario.html"), (err) => {
+    if (err) {
+      console.error("error encontrando el archivo:", err);
+      res.status(500).end();
+    }
+  });
+});
