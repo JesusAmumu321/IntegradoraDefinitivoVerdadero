@@ -60,7 +60,7 @@ function inicializarFormularioMedicamentos() {
             title: "Se agregó el medicamento de manera correcta.",
             allowOutsideClick: false,
           });
-          // Aquí puedes limpiar el formulario o redirigir a otra página
+          // limpiar formulario
         } else {
           Swal.fire({
             icon: "error",
