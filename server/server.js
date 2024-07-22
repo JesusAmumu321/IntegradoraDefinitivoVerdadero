@@ -14,16 +14,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(join(__dirname, "../public")));
 
-// app.get("/", (req, res) => {
-//   res.sendFile(join(__dirname, "../public/HTML/index.html"), (err) => {
-//     if (err) {
-//       console.error("error encontrando el archivo:", err);
-//       res.status(500).end();
-//     }
-//   });
-//   console.log("hola mma")
-//   res.send("hola mmi")
-// });
 
 app.get("/login", (req, res) => {
   res.sendFile(join(__dirname, "../public/HTML/login.html"), (err) => {

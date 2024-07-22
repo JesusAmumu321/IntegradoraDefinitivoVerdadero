@@ -144,8 +144,6 @@ window.generarEventosAutomaticos = function generarEventosAutomaticos(
   iniciarCalendario();
 };
 
-
-
 function formatearHora(fecha) {
   let horas = fecha.getHours();
   let minutos = fecha.getMinutes();
