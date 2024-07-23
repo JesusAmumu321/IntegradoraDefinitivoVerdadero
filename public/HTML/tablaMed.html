@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-ES" class="h-full w-full">
+<html lang="es-ES">
 
 <head>
   <meta charset="UTF-8" />
@@ -28,10 +28,57 @@
   </script>
   <script src="../JS/table.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    @media (max-width: 640px) {
+      .tabla-responsive {
+        display: block;
+      }
+
+      .tabla-responsive thead {
+        display: none;
+      }
+
+      .tabla-responsive tbody {
+        display: block;
+      }
+
+      .tabla-responsive tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        background-color: white;
+      }
+
+      .tabla-responsive td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border: none;
+      }
+
+      .tabla-responsive td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 1rem;
+        flex-basis: 50%;
+        text-align: left;
+      }
+
+      .tabla-responsive td span {
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+  </style>
 </head>
 
-<body class="min-h-screen bg-bg-personalizado font-roboto">
-  <div id="divGeneral" class="max-w-7xl mx-auto my-4 bg-gray-100 p-2.5 rounded shadow-lg min-h-auto]">
+<body class="min-h-screen bg-bg-personalizado font-roboto flex flex-col">
+
+  <div id="divGeneral"
+    class="max-w-7xl w-full mx-auto my-3 bg-gray-100 p-3 pb-6 rounded shadow-lg flex flex-col flex-grow">
+
     <header class="flex flex-wrap items-center p-4 bg-hd-personalizado rounded mb-4 min-h-[5rem]">
       <div class="logo flex items-center flex-grow mb-2 sm:mb-0">
         <a href="../HTML/mainPage.html" class="flex flex-row items-start">
@@ -48,56 +95,63 @@
       </nav>
     </header>
 
-    <section class="bg-white p-5 rounded flex-1 flex flex-col">
-      <div class="mb-4">
+    <section class="bg-white p-5 rounded flex flex-col flex-grow">
+      <div class="mb-4 flex justify-center">
         <div class="inline-flex bg-gray-100 rounded-lg overflow-hidden">
           <a href="../HTML/agregarMed.html"
-            class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Agregar
+            class="px-4 py-2 text-gray-600 text-m hover:bg-hd-personalizado transition-colors rounded-l-lg">Agregar
             Medicamento</a>
-          <a class="bg-white border-solid border-2 rounded-lg border-bg-personalizado px-4 py-1.5 text-gray-600 text-m">Sus
+          <a
+            class="bg-white px-4 py-2 text-gray-600 text-m font-semibold border-t-2 border-b-2 border-bg-personalizado">Sus
             Medicamentos</a>
           <a href="../HTML/calendario.html"
-            class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Calendario</a>
+            class="px-4 py-2 text-gray-600 text-m hover:bg-hd-personalizado transition-colors rounded-r-lg">Calendario</a>
         </div>
       </div>
       <div class="flex flex-col items-center border-b-2 border-t-2 py-3 my-4">
-        <h2 class="text-g font-bold mb-1">Visualice sus Medicamentos</h2>
+        <h2 class="text-g font-bold mb-1 text-center">Visualice sus Medicamentos</h2>
       </div>
-      <div class="flex-1 flex justify-center items-center p-5 bg-gray-100 overflow-x-auto">
-        <div class="w-full h-full">
-          <div class="overflow-x-auto h-full">
-            <table class="w-full h-full table-auto border-collapse border mb-2 text-m">
-              <thead class="bg-gray-800 text-white">
-                <tr>
-                  <th class="border border-gray-300 p-2 text-center">
-                    Medicamento
-                  </th>
-                  <th class="border border-gray-300 p-2 text-center">
-                    Caducidad
-                  </th>
-                  <th class="border border-gray-300 p-2 text-center">
-                    Cantidad de la caja
-                  </th>
-                  <th class="border border-gray-300 p-2 text-center">
-                    Dosis
-                  </th>
-                  <th class="border border-gray-300 p-2 text-center">
-                    Próximo consumo
-                  </th>
-                  <th class="border border-gray-300 p-2 text-center">
-                    Fin de consumo
-                  </th>
-                </tr>
-              </thead>
-              <tbody id="laTablona">
-                <!-- Aquí se insertarán las filas de la tabla dinámicamente -->
-              </tbody>
-            </table>
-          </div>
+      <div class="flex-grow flex justify-center items-start p-5 bg-gray-100 overflow-x-auto">
+        <div class="w-full">
+          <table class="w-full table-auto border-collapse mb-2 text-m tabla-responsive">
+            <thead class="bg-gray-800 text-white">
+              <tr>
+                <th class="p-2 text-left">Medicamento</th>
+                <th class="p-2 text-left">Caducidad</th>
+                <th class="p-2 text-left">Cantidad de la caja</th>
+                <th class="p-2 text-left">Dosis</th>
+                <th class="p-2 text-left">Próximo consumo</th>
+                <th class="p-2 text-left">Fin de consumo</th>
+              </tr>
+            </thead>
+            <tbody id="laTablona">
+              <!-- Las filas se insertarán dinámicamente aquí -->
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
   </div>
+
+  <script>
+    // Este script debe ir después de que el DOM se haya cargado
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabla = document.getElementById('laTablona');
+      const filas = tabla.getElementsByTagName('tr');
+
+      for (let i = 0; i < filas.length; i++) {
+        const celdas = filas[i].getElementsByTagName('td');
+        for (let j = 0; j < celdas.length; j++) {
+          const encabezado = document.querySelector('th:nth-child(' + (j + 1) + ')');
+          celdas[j].setAttribute('data-label', encabezado.textContent);
+
+          // Envolver el contenido de la celda en un span
+          const contenido = celdas[j].innerHTML;
+          celdas[j].innerHTML = '<span>' + contenido + '</span>';
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

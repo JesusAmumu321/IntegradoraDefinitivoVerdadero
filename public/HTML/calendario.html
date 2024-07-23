@@ -30,6 +30,28 @@
       },
     };
   </script>
+  <style>
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        width: 100% !important;
+        min-height: auto !important;
+      }
+
+      .izquierda,
+      .derecha {
+        width: 100% !important;
+      }
+
+      .calendar-custom {
+        font-size: 0.8rem;
+      }
+
+      .dias {
+        grid-template-columns: repeat(7, 1fr);
+      }
+    }
+  </style>
   <script src="../JS/calendario.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
@@ -72,15 +94,12 @@
         <h2 class="text-g font-bold mb-1">Consulte su calendario.</h2>
         <p class="text-s mb-2 text-center">
           Consulte sus proximas tomas.
-          
-          <!-- Revise sus proximas tomas y verifique que si concuerdan con la toma
-          que le corresponde. -->
         </p>
       </div>
 
       <div
-        class="relative w-[1600px] min-h-[900px] mx-auto p-[5px] text-white flex rounded-[10px] bg-[#d9d9d9] container">
-        <div class="w-[90%] p-[20px] izquierda">
+        class="relative w-full max-w-[1600px] min-h-[900px] mx-auto p-[5px] text-white flex rounded-[10px] bg-[#d9d9d9] container">
+        <div class="w-full lg:w-[90%] p-[20px] izquierda">
           <div
             class="relative w-full h-full flex flex-col flex-wrap justify-between text-[#878895] rounded-[5px] bg-white calendar-custom">
             <div class="mes">
@@ -109,7 +128,7 @@
             </div>
           </div>
         </div>
-        <div class="derecha">
+        <div class="derecha w-full lg:w-auto">
           <div class="hoy-fecha">
             <div class="evento-dia">Mie</div>
             <div class="evento-fecha">10 Julio 2024</div>
@@ -138,7 +157,7 @@
             </div>
           </div>
         </div>
-        <button class="borrar-eventos-btn" onclick="borrarEventosAutomaticos()">
+        <button class="borrar-eventos-btn absolute bottom-2 right-2" onclick="borrarEventosAutomaticos()">
           <i>Borrar todos los eventos</i>
         </button>
       </div>
