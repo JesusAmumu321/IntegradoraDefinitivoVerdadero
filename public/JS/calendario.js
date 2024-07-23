@@ -51,7 +51,7 @@ function iniciarCalendario() {
   }
 
   for (let i = 1; i <= fechaUltima; i++) {
-    let evento = false;
+    let evento = false
     eventosArr.forEach((objetoEvento) => {
       if (
         objetoEvento.dia === i &&
@@ -145,13 +145,13 @@ window.generarEventosAutomaticos = function generarEventosAutomaticos(
 };
 
 function formatearHora(fecha) {
-  let horas = fecha.getHours();
-  let minutos = fecha.getMinutes();
-  const ampm = horas >= 12 ? "PM" : "AM";
-  horas = horas % 12;
-  horas = horas ? horas : 12;
-  minutos = minutos < 10 ? "0" + minutos : minutos;
-  return horas + ":" + minutos + " " + ampm;
+  let horas = fecha.getHours()
+  let minutos = fecha.getMinutes()
+  const ampm = horas >= 12 ? 'PM' : 'AM'
+  horas = horas % 12
+  horas = horas ? horas : 12
+  minutos = minutos < 10 ? '0' + minutos : minutos
+  return horas + ':' + minutos + ' ' + ampm
 }
 
 function mesAnterior() {
