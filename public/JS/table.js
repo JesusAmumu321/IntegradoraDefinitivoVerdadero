@@ -1,127 +1,106 @@
 document.addEventListener('DOMContentLoaded', function() {
-  function calcularProximaToma(frecuenciaToma, ultimaToma) {
-      const horaActual = new Date();
-      const ultimaTomaDate = new Date(ultimaToma);
-  
-      function ajustarHora(hora, minutos) {
-          let fecha = new Date(horaActual);
-          fecha.setHours(hora, minutos, 0, 0);
-          if (fecha <= horaActual) {
-              fecha.setDate(fecha.getDate() + 1);
-          }
-          return fecha;
-      }
-      function calcularPaUnaHora() {
-          let horaActualHora = horaActual.getHours();
-          if (horaActualHora >= 22 || horaActualHora < 7) {
-              return ajustarHora(7, 0);
-          } else {
-              return ajustarHora(horaActualHora + 1, 0);
-          }
-      }
-  
-      function calcularIntervalo(inicio, fin, tomas) {
-          const intervalo = (fin - inicio) / (tomas - 1);
-          let horas = [];
-          for (let i = 0; i < tomas; i++) {
-              horas.push(Math.round(inicio + i * intervalo));
-          }
-          return horas;
-      }
-  
-      function encontrarProximaToma(horas) {
-          let proximaHora = horas.find(h => h > horaActual.getHours());
-          return proximaHora ? ajustarHora(proximaHora, 0) : ajustarHora(horas[0], 0);
-      }
-  
-      let proximaToma;
-  
-      switch(frecuenciaToma) {
-          case 1:
-              proximaToma = calcularPaUnaHora();            
-              break;
-          case 2:
-              proximaToma = encontrarProximaToma([8, 22]);
-              break;
-          case 3:
-              proximaToma = encontrarProximaToma(calcularIntervalo(7, 23, 3));
-              break;
-          case 4:
-              proximaToma = encontrarProximaToma(calcularIntervalo(7, 23, 4));
-              break;
-          case 5:
-              proximaToma = encontrarProximaToma([7, 12, 17]);
-              break;
-          case 6:
-              proximaToma = encontrarProximaToma([7, 13, 19]);
-              break;
-          case 8:
-              proximaToma = encontrarProximaToma([7, 14, 22]);
-              break;
-          case 9:
-              proximaToma = encontrarProximaToma([7, 14.5, 23]);
-              break;
-          case 10:
-          case 11:
-          case 12:
-          case 13:
-              proximaToma = encontrarProximaToma([7, 17]);
-              break;
-          case 14:
-          case 15:
-          case 16:
-          case 17:
-          case 18:
-          case 19:
-          case 20:
-          case 21:
-          case 22:
-          case 23:
-              proximaToma = encontrarProximaToma(calcularIntervalo(7, 22, frecuenciaToma));
-              break;
-          case 24:
-              proximaToma = ajustarHora(7, 0);
-              break;
-          default:
-              proximaToma = new Date(horaActual);
-              break;
-      }
-  
-      return proximaToma.toLocaleTimeString('es-ES', { 
-          hour: '2-digit', 
-          minute: '2-digit',
-          hour12: false
-      });
-  }
+    function calcularProximaToma(fechaFinalStr, intervaloHoras) {
+        console.log('fechaFinalStr:', fechaFinalStr); // Log el valor de fechaFinalStr
 
-  function buildTable(data) {
-    const table = document.getElementById('laTablona');
-    for (let i = 0; i < data.length; i++) {
-        const proximaToma = calcularProximaToma(data[i].frecuentaToma, data[i].ultimaToma);
-        const row = `<tr class="bg-gray-200 text-2xl">
-            <td class="border border-gray-300 p-4 align-center text">${data[i].nombreMed}</td>
-            <td class="border border-gray-300 p-4 align-center">${new Date(data[i].caducidadMed).toLocaleDateString('es-ES')}</td>
-            <td class="border border-gray-300 p-4 align-center">${data[i].cantidadUnaCaja}</td>
-            <td class="border border-gray-300 p-4 align-center">${data[i].cantidadDosis}</td>
-            <td class="border border-gray-300 p-4 align-center">${proximaToma}</td>
-            <td class="border border-gray-300 p-4 align-center">${new Date(data[i].ultimaToma).toLocaleDateString('es-ES')}</td>
-        </tr>`;
-        table.innerHTML += row;
+        // Verificar si fechaFinalStr es válida
+        const fechaFinal = fechaFinalStr ? new Date(fechaFinalStr) : null;
+        console.log('fechaFinal:', fechaFinal); // Log el objeto fechaFinal
+
+        if (!fechaFinal || isNaN(fechaFinal.getTime())) {
+            console.warn('Fecha final no válida:', fechaFinalStr);
+            return []; // Retornar un array vacío si la fecha no es válida
+        }
+        fechaFinal.setHours(23, 59, 59, 999); // Establecer la hora al final del día
+
+        const fechaActual = new Date();
+        console.log('Fecha Actual:', fechaActual.toLocaleDateString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        }));
+        console.log('Fecha Final:', fechaFinal.toLocaleDateString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        }));
+        console.log('Intervalo Horas:', intervaloHoras);
+
+        // Crear un array para almacenar las fechas calculadas
+        const fechasCalculadas = [];
+
+        // Calcular fechas desde la fecha actual hasta la fecha final
+        let fechaTemporal = new Date(fechaActual);
+        fechaTemporal.setSeconds(0, 0); // Redondear a los minutos
+
+        // Ajustar la hora inicial para que comience desde un intervalo válido
+        if (fechaTemporal.getHours() < 7) {
+            fechaTemporal.setHours(7, 0, 0, 0);
+        } else if (fechaTemporal.getHours() > 22) {
+            fechaTemporal.setDate(fechaTemporal.getDate() + 1);
+            fechaTemporal.setHours(7, 0, 0, 0);
+        } else {
+            // Ajustar al siguiente intervalo si la hora actual no es un múltiplo del intervalo
+            const minutosRestantes = (intervaloHoras - (fechaTemporal.getHours() % intervaloHoras)) % intervaloHoras;
+            if (minutosRestantes !== 0) {
+                fechaTemporal.setHours(fechaTemporal.getHours() + minutosRestantes, 0, 0, 0);
+            }
+        }
+
+        while (fechaTemporal <= fechaFinal) {
+            if (fechaTemporal.getHours() >= 7 && fechaTemporal.getHours() <= 22) {
+                fechasCalculadas.push(new Date(fechaTemporal));
+            }
+            fechaTemporal.setHours(fechaTemporal.getHours() + intervaloHoras);
+        }
+
+        // Ordenar las fechas por proximidad (de la más cercana a la más lejana)
+        fechasCalculadas.sort((a, b) => a - b);
+        console.log('Fechas Calculadas:', fechasCalculadas.map(fecha => fecha.toLocaleDateString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        })));
+        return fechasCalculadas;
     }
-  }
 
-  fetch('http://localhost:3000/getMedicamentos')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      buildTable(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert(`Error al obtener los datos: ${error.message}`);
-    });
+    function buildTable(data) {
+        const table = document.getElementById('laTablona');
+        for (let i = 0; i < data.length; i++) {
+            const fechaFinal = data[i].fechaFinal || 'N/A';
+            const proximaTomaArr = calcularProximaToma(data[i].ultimaToma, data[i].frecuenciaToma);
+            const proximaToma = proximaTomaArr.length > 0 ? proximaTomaArr[0].toLocaleDateString('es-ES', {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            }) : 'juanchi';
+
+            const row = `<tr class="bg-gray-200 text-2xl">
+                <td class="border border-gray-300 p-4 align-center text">${data[i].nombreMed}</td>
+                <td class="border border-gray-300 p-4 align-center">${new Date(data[i].caducidadMed).toLocaleDateString('es-ES')}</td>
+                <td class="border border-gray-300 p-4 align-center">${data[i].cantidadUnaCaja}</td>
+                <td class="border border-gray-300 p-4 align-center">${data[i].cantidadDosis}</td>
+                <td class="border border-gray-300 p-4 align-center">${proximaToma}</td>
+                <td class="border border-gray-300 p-4 align-center">${new Date(data[i].ultimaToma).toLocaleDateString('es-ES')}</td>
+            </tr>`;
+            table.innerHTML += row;
+        }
+    }
+
+    fetch('http://localhost:3000/getMedicamentos')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Datos recibidos:', data);
+            buildTable(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert(`Error al obtener los datos: ${error.message}`);
+        });
 });
