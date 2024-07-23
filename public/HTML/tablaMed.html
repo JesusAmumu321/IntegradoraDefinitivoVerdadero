@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es-ES">
+<html lang="es-ES" class="min-h-full w-full">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sus medicamentos - Med & Track</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -11,23 +11,23 @@
       theme: {
         extend: {
           backgroundColor: {
-            "bg-personalizado": "#b8d5db",
-            "hd-personalizado": "#d9d9d9",
+            'bg-personalizado': '#b8d5db',
+            'hd-personalizado': '#d9d9d9',
           },
           fontSize: {
-            g: "clamp(1rem, 2vw, 2.25rem)",
-            m: "clamp(0.75rem, 1.5vw, 1.5rem)",
-            s: "clamp(0.50rem, 1vw, 1.2rem)",
+            'g': 'clamp(1rem, 2vw, 2.25rem)',
+            'm': 'clamp(0.75rem, 1.5vw, 1.5rem)',
+            's': 'clamp(0.50rem, 1vw, 1.2rem)',
           },
           fontFamily: {
-            roboto: ["Roboto", "sans-serif"],
-          },
-        },
-      },
-    };
+            'roboto': ['Roboto', 'sans-serif'],
+          }
+        }
+      }
+    }
   </script>
   <script src="../JS/table.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     @media (max-width: 640px) {
       .tabla-responsive {
@@ -74,11 +74,8 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-bg-personalizado font-roboto flex flex-col">
-
-  <div id="divGeneral"
-    class="max-w-6xl w-full mx-auto my-3 bg-gray-100 p-3 pb-6 rounded shadow-lg flex flex-col flex-grow">
-
+<body class="min-h-full m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-x-hidden font-roboto">
+  <div id="divGeneral" class="w-[97vw] flex flex-col min-h-[97vh] my-2 mx-auto bg-gray-100 p-3.5 box-border rounded">
     <header class="flex flex-wrap items-center p-4 bg-hd-personalizado rounded mb-4 min-h-[5rem]">
       <div class="logo flex items-center mb-2 sm:mb-0">
         <a href="../HTML/mainPage.html" class="flex flex-row items-start">
@@ -89,30 +86,32 @@
 
       <nav class="navegacion flex ml-auto mb-2 sm:mb-0 order-3">
         <div class="flex space-x-4">
-          <a href="../HTML/contactUS.html" class="text-black font-medium text-base hover:italic">Contáctenos</a>
-          <a href="https://www.utch.edu.mx" class="text-black font-medium text-base hover:italic">Utch</a>
+          <a href="../HTML/contactUS.html"
+            class="text-black font-medium text-base font-bold hover:italic">Contáctenos</a>
+          <a href="https://www.utch.edu.mx" class="text-black font-medium text-base font-bold hover:italic">Utch</a>
         </div>
       </nav>
     </header>
 
-
-    <section class="bg-white p-5 rounded flex flex-col flex-grow">
-      <div class="mb-4 flex">
+    <section class="flex-1 flex flex-col p-5 bg-white">
+      <div class="mb-4">
         <div class="inline-flex bg-gray-100 rounded-lg overflow-hidden">
           <a href="../HTML/agregarMed.html"
-            class="px-4 py-2 text-gray-600 text-m hover:bg-hd-personalizado transition-colors rounded-l-lg">Agregar
+            class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Agregar
             Medicamento</a>
           <a
-            class="bg-white px-4 py-2 text-gray-600 text-m font-semibold border-t-2 border-b-2 border-bg-personalizado">Sus
+            class="bg-white border-solid border-2 rounded-lg font-semibold border-bg-personalizado px-4 py-1.5 text-gray-600 text-m">Sus
             Medicamentos</a>
           <a href="../HTML/calendario.html"
-            class="px-4 py-2 text-gray-600 text-m hover:bg-hd-personalizado transition-colors rounded-r-lg">Calendario</a>
+            class="px-4 py-1.5 text-gray-600 text-m hover:bg-hd-personalizado hover:ease-in-out hover:duration-300 hover:z-10 hover:transition-colors hover:rounded">Calendario</a>
         </div>
       </div>
+
       <div class="flex flex-col items-center border-b-2 border-t-2 py-3 my-4">
-        <h2 class="text-g font-bold mb-1 text-center">Visualice sus Medicamentos.</h2>
-        <!-- <p class="text-s mb-2 text-center">Vea sus medicameme</p> -->
+        <h2 class="text-g font-bold mb-2">Visualice sus Medicamentos</h2>
+        <p class="text-s mb-2 text-center">Aquí puede ver todos los medicamentos que ha agregado a su perfil.</p>
       </div>
+
       <div class="flex-grow flex justify-center items-start p-5 bg-gray-100 overflow-x-auto">
         <div class="w-full">
           <table class="w-full table-auto border-collapse mb-2 text-m tabla-responsive">
@@ -136,7 +135,6 @@
   </div>
 
   <script>
-    // Este script debe ir después de que el DOM se haya cargado
     document.addEventListener('DOMContentLoaded', function () {
       const tabla = document.getElementById('laTablona');
       const filas = tabla.getElementsByTagName('tr');
@@ -147,7 +145,6 @@
           const encabezado = document.querySelector('th:nth-child(' + (j + 1) + ')');
           celdas[j].setAttribute('data-label', encabezado.textContent);
 
-          // Envolver el contenido de la celda en un span
           const contenido = celdas[j].innerHTML;
           celdas[j].innerHTML = '<span>' + contenido + '</span>';
         }

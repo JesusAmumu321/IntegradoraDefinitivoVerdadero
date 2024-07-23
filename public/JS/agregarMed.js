@@ -9,20 +9,34 @@ function inicializarFormularioMedicamentos() {
   );
   const cantidadUnaCajaInput = document.getElementById("cantidadUnaCaja");
 
+  // seleccionar inputs
+  const inputsNumeroPositivo = document.querySelectorAll(
+    "input.numero-positivo"
+  );
+
+  // validar para solo nums positivos
+  inputsNumeroPositivo.forEach((input) => {
+    input.addEventListener("input", function () {
+      let value = this.value.trim();
+      let numValue = parseFloat(value);
+
+      if (value === "" || isNaN(numValue) || numValue <= 0) {
+        this.value = "";
+      } else {
+        // si el input usa enteros, se usa Math.flooe
+        // si el input permite decimales, ps se comento lo de this.value
+        this.value = Math.floor(numValue);
+      }
+    });
+  });
+
   tipoMedicamento.addEventListener("change", function () {
-    if (this.value === "pastillas") {
+    if (this.value === "ml") {
       cantidadDosisLabel.innerHTML =
-        'Cantidad de pastillas por dosis <span class="text-red-500">*</span>';
-      cantidadDosisInput.placeholder = "Ej. 1.";
-      cantidadUnaCajaLabel.innerHTML =
-        'Cantidad de pastillas que contiene 1 caja. <span class="text-red-500">*</span>';
-      cantidadUnaCajaInput.placeholder = "Ej. 30.";
-    } else if (this.value === "ml") {
-      cantidadDosisLabel.innerHTML =
-        'Cantidad de mililitros por dosis <span class="text-red-500">*</span>';
+        'Cantidad de mililitros por dosis: <span class="text-red-500">*</span>';
       cantidadDosisInput.placeholder = "Ej. 5.";
       cantidadUnaCajaLabel.innerHTML =
-        'Cantidad de mililitros que contiene 1 frasco. <span class="text-red-500">*</span>';
+        'Cantidad de mililitros por frasco: <span class="text-red-500">*</span>';
       cantidadUnaCajaInput.placeholder = "Ej. 100.";
     }
   });
