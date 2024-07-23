@@ -77,27 +77,27 @@
 <body class="min-h-screen bg-bg-personalizado font-roboto flex flex-col">
 
   <div id="divGeneral"
-    class="max-w-7xl w-full mx-auto my-3 bg-gray-100 p-3 pb-6 rounded shadow-lg flex flex-col flex-grow">
+    class="max-w-6xl w-full mx-auto my-3 bg-gray-100 p-3 pb-6 rounded shadow-lg flex flex-col flex-grow">
 
     <header class="flex flex-wrap items-center p-4 bg-hd-personalizado rounded mb-4 min-h-[5rem]">
-      <div class="logo flex items-center flex-grow mb-2 sm:mb-0">
+      <div class="logo flex items-center mb-2 sm:mb-0">
         <a href="../HTML/mainPage.html" class="flex flex-row items-start">
           <img src="../assets/LOGO_VECTORIZADOsvg.svg" alt="logo" class="h-12 mr-1" />
           <h1 class="text-2xl font-bold mt-2 ml-3">Med & Track</h1>
         </a>
       </div>
 
-      <nav class="navegacion w-full sm:w-auto mb-2 sm:mb-0 order-3 sm:order-2"> 
-        <!-- sm = small breakopint, es para celulares -->
-        <a href="../HTML/contactUS.html"
-          class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">Contáctenos</a>
-        <a href="https://www.utch.edu.mx"
-          class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">UTCH</a>
+      <nav class="navegacion flex ml-auto mb-2 sm:mb-0 order-3">
+        <div class="flex space-x-4">
+          <a href="../HTML/contactUS.html" class="text-black font-medium text-base hover:italic">Contáctenos</a>
+          <a href="https://www.utch.edu.mx" class="text-black font-medium text-base hover:italic">Utch</a>
+        </div>
       </nav>
     </header>
 
+
     <section class="bg-white p-5 rounded flex flex-col flex-grow">
-      <div class="mb-4 flex justify-center">
+      <div class="mb-4 flex">
         <div class="inline-flex bg-gray-100 rounded-lg overflow-hidden">
           <a href="../HTML/agregarMed.html"
             class="px-4 py-2 text-gray-600 text-m hover:bg-hd-personalizado transition-colors rounded-l-lg">Agregar
@@ -110,7 +110,8 @@
         </div>
       </div>
       <div class="flex flex-col items-center border-b-2 border-t-2 py-3 my-4">
-        <h2 class="text-g font-bold mb-1 text-center">Visualice sus Medicamentos</h2>
+        <h2 class="text-g font-bold mb-1 text-center">Visualice sus Medicamentos.</h2>
+        <!-- <p class="text-s mb-2 text-center">Vea sus medicameme</p> -->
       </div>
       <div class="flex-grow flex justify-center items-start p-5 bg-gray-100 overflow-x-auto">
         <div class="w-full">

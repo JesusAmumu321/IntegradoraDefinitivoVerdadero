@@ -59,20 +59,20 @@
 <body class="m-0 p-0 bg-bg-personalizado flex justify-center items-center overflow-x-hidden font-roboto">
   <div id="divGeneral"
     class="relative w-[98vw] min-h-[96vh] flex flex-col my-[2vh] mx-auto bg-gray-100 p-2.5 box-border rounded">
-    <header
-      class="flex flex-wrap items-center p-4 bg-hd-personalizado w-full box-border relative top-0 left-0 min-h-[5rem] rounded">
-      <div class="logo flex items-center flex-grow mb-2 sm:mb-0">
-        <a href="/HTML/mainPage.html" class="flex flex-row items-start">
+
+    <header class="flex flex-wrap items-center p-4 bg-hd-personalizado rounded mb-4 min-h-[5rem]">
+      <div class="logo flex items-center mb-2 sm:mb-0">
+        <a href="../HTML/mainPage.html" class="flex flex-row items-start">
           <img src="../assets/LOGO_VECTORIZADOsvg.svg" alt="logo" class="h-12 mr-1" />
           <h1 class="text-2xl font-bold mt-2 ml-3">Med & Track</h1>
         </a>
       </div>
 
-      <nav class="navegacion w-full sm:w-auto mb-2 sm:mb-0 order-3 sm:order-2">
-        <a id="contactUS" href="/public/HTML/contactUS.html"
-          class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">Contáctenos</a>
-        <a id="utch" href="https://www.utch.edu.mx"
-          class="text-black mx-2 sm:mx-4 font-medium text-m block sm:inline hover:italic">UTCH</a>
+      <nav class="navegacion flex ml-auto mb-2 sm:mb-0 order-3">
+        <div class="flex space-x-4">
+          <a href="../HTML/contactUS.html" class="text-black font-medium text-base hover:italic">Contáctenos</a>
+          <a href="https://www.utch.edu.mx" class="text-black font-medium text-base hover:italic">Utch</a>
+        </div>
       </nav>
     </header>
 
@@ -130,11 +130,11 @@
         </div>
         <div class="derecha w-full lg:w-auto">
           <div class="hoy-fecha">
-            <div class="evento-dia">Mie</div>
-            <div class="evento-fecha">10 Julio 2024</div>
+            <div class="evento-dia"></div>
+            <div class="evento-fecha"></div>
           </div>
           <div class="eventos">
-            <!-- we will add events through js-->
+            <!-- we will add events through js -->
           </div>
           <div class="agregar-evento-contenedor">
             <div class="agregar-encabezado-evento">
@@ -157,9 +157,11 @@
             </div>
           </div>
         </div>
-        <button class="borrar-eventos-btn absolute bottom-2 right-2" onclick="borrarEventosAutomaticos()">
+        
+        <button class="borrar-eventos-btn absolute right-2 md:border-black" onclick="borrarEventosAutomaticos()">
           <i>Borrar todos los eventos</i>
         </button>
+
       </div>
     </section>
   </div>
