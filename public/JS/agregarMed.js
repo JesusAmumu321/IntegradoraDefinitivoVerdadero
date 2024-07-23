@@ -1,20 +1,21 @@
 function inicializarFormularioMedicamentos() {
   const tipoMedicamento = document.getElementById("tipo_medicamento");
-  const cantidadDosisLabel = document.querySelector(
-    'label[for="cantidadDosis"]'
-  );
+  const cantidadDosisLabel = document.getElementById("cantidadDosisLabel");
   const cantidadDosisInput = document.getElementById("cantidadDosis");
   const cantidadUnaCajaLabel = document.querySelector(
     'label[for="cantidadUnaCaja"]'
   );
   const cantidadUnaCajaInput = document.getElementById("cantidadUnaCaja");
+  const cantidadCajasLabel = document.querySelector(
+    'label[for="cantidadCajas"]'
+  );
 
-  // seleccionar inputs
+  // Seleccionar inputs
   const inputsNumeroPositivo = document.querySelectorAll(
     "input.numero-positivo"
   );
 
-  // validar para solo nums positivos
+  // Validar para solo números positivos
   inputsNumeroPositivo.forEach((input) => {
     input.addEventListener("input", function () {
       let value = this.value.trim();
@@ -23,8 +24,8 @@ function inicializarFormularioMedicamentos() {
       if (value === "" || isNaN(numValue) || numValue <= 0) {
         this.value = "";
       } else {
-        // si el input usa enteros, se usa Math.flooe
-        // si el input permite decimales, ps se comento lo de this.value
+        // Si el input usa enteros, se usa Math.floor
+        // Si el input permite decimales, se usa parseInt
         this.value = Math.floor(numValue);
       }
     });
@@ -34,10 +35,31 @@ function inicializarFormularioMedicamentos() {
     if (this.value === "ml") {
       cantidadDosisLabel.innerHTML =
         'Cantidad de mililitros por dosis: <span class="text-red-500">*</span>';
+
       cantidadDosisInput.placeholder = "Ej. 5.";
+
       cantidadUnaCajaLabel.innerHTML =
         'Cantidad de mililitros por frasco: <span class="text-red-500">*</span>';
+
       cantidadUnaCajaInput.placeholder = "Ej. 100.";
+
+      cantidadCajasLabel.innerHTML =
+        'Cantidad de frascos disponibles: <span class="text-red-500">*</span>';
+
+        cantidadCajasLabel.placeholder = "Ej. 100.";
+    } else if (this.value === "pastillas") {
+      cantidadDosisLabel.innerHTML =
+        'Cantidad de pastillas por dosis: <span class="text-red-500">*</span>';
+
+      cantidadDosisInput.placeholder = "Ej. 2.";
+
+      cantidadUnaCajaLabel.innerHTML =
+        'Cantidad de unidades por caja: <span class="text-red-500">*</span>';
+
+      cantidadUnaCajaInput.placeholder = "Ej. 10.";
+
+      cantidadCajasLabel.innerHTML =
+        'Cantidad de cajas disponibles: <span class="text-red-500">*</span>';
     }
   });
 
@@ -76,7 +98,7 @@ function inicializarFormularioMedicamentos() {
             title: "Se agregó el medicamento de manera correcta.",
             allowOutsideClick: false,
           });
-          // limpiar formulario
+          // Limpiar formulario
         } else {
           Swal.fire({
             icon: "error",

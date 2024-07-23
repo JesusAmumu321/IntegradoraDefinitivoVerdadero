@@ -76,13 +76,13 @@
       <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-4 mt-10">
         <div class="flex flex-col">
           <label for="tipo_medicamento" class="mb-1 text-m font-medium">
-            Forma de administración:<span class="text-red-500"> *</span>
+            Presentación del medicamento:<span class="text-red-500"> *</span>
           </label>
           <select id="tipo_medicamento" name="tipo_medicamento"
             class="w-full h-12 bg-white border border-gray-300 rounded-md px-3 pr-8 text-s focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
             <option value="" selected>Seleccione</option>
             <option value="pastillas">Pastillas</option>
-            <option value="ml">Solución</option>
+            <option value="ml">Líquido</option>
           </select>
         </div>
 
@@ -102,33 +102,37 @@
             class="w-full h-12 px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
 
+
         <div class="flex flex-col">
-          <label for="cantidadDosis" class="mb-1 text-m font-medium">
+          <label id="cantidadDosisLabel" for="cantidadDosis" class="mb-1 text-m font-medium">
             Cantidad de pastillas por dosis: <span class="text-red-500">*</span>
           </label>
           <input type="number" name="cantidadDosis" id="cantidadDosis" required placeholder="Ej. 2." min="1" step="1"
-            class="numero-positivo  w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+            class="numero-positivo w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" >
         </div>
 
         <div class="flex flex-col">
-          <label for="cantidadUnaCaja" class="mb-1 text-m font-medium">
+          <label id="cantidadUnaCaja" for="cantidadUnaCaja" class="mb-1 text-m font-medium">
             Cantidad de unidades por caja: <span class="text-red-500">*</span>
           </label>
           <input type="number" name="cantidadUnaCaja" id="cantidadUnaCaja" required placeholder="Ej. 10." min="1"
             step="1"
-            class="numero-positivo w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+            class="numero-positivo w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" >
         </div>
 
         <div class="flex flex-col">
-          <label for="cantidadCajas" class="mb-1 text-m font-medium">
-            Cantidad de cajas disponibles: <span class="text-red-500">*</span>
+          <label id="cantidadUnaCaja" for="cantidadCajas" class="mb-1 text-m font-medium">
+
+            Cantidad de cajas disponibles:
+            <span class="text-red-500">*</span>
+
           </label>
           <input type="number" name="cantidadCajas" id="cantidadCajas" required placeholder="Ej. 3." min="1" step="1"
-            class="numero-positivo w-full px-1.5 h-12 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
+            class="numero-positivo border h-12 rounded-md p-1.5 w-full text-s focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" />
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-m font-medium animate-pulse">
+          <label class="mb-1 text-m font-medium">
             Fecha de caducidad del medicamento:
           </label>
           <input type="date" id="caducidadMed" name="caducidadMed"
@@ -136,7 +140,9 @@
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-m font-medium">Fecha de finalización del medicamento:</label>
+          <label class="mb-1 text-m font-medium">
+            Fecha de finalización del medicamento:
+          </label>
           <input type="date" id="ultimaToma" name="ultimaToma"
             class="border h-12 rounded-md p-1.5 w-full text-s focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" />
         </div>

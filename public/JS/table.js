@@ -101,20 +101,20 @@ document.addEventListener("DOMContentLoaded", function () {
           : "juanchi";
 
       const row = `<tr class="bg-gray-200 text-2xl">
-                <td class="border border-gray-300 p-4 align-center text">${
+                <td class="border border-gray-400 p-4 align-center text">${
                   data[i].nombreMed
                 }</td>
-                <td class="border border-gray-300 p-4 align-center">${new Date(
+                <td class="border border-gray-400 p-4 align-center">${new Date(
                   data[i].caducidadMed
                 ).toLocaleDateString("es-ES")}</td>
-                <td class="border border-gray-300 p-4 align-center">${
+                <td class="border border-gray-400 p-4 align-center">${
                   data[i].cantidadUnaCaja
                 }</td>
-                <td class="border border-gray-300 p-4 align-center">${
+                <td class="border border-gray-400 p-4 align-center">${
                   data[i].cantidadDosis
                 }</td>
-                <td class="border border-gray-300 p-4 align-center">${proximaToma}</td>
-                <td class="border border-gray-300 p-4 align-center">${new Date(
+                <td class="border border-gray-400 p-4 align-center">${proximaToma}</td>
+                <td class="border border-gray-400 p-4 align-center">${new Date(
                   data[i].ultimaToma
                 ).toLocaleDateString("es-ES")}</td>
             </tr>`;

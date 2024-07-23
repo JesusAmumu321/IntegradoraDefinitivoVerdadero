@@ -193,7 +193,19 @@ function gotoDate() {
       return;
     }
   }
-  alert("fecha inválida");
+  Swal.fire({
+    icon: "warning",
+    title: "Fecha Inválida.",
+    showConfirmButton: false,
+    timer: 1500,
+    /*
+    Estos tres de abajo sirven para que no se pueda hacer clic afuera de la alerta
+    para quitarla, al igual q en con el escape o con el enter y ya
+    */
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+  });
 }
 
 function agregarEscuchador() {
