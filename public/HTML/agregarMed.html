@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Añadir un medicamento - Med & Track</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../JS/calendario.js"></script>
-  <script type="text/javascript" src="../JS/agregarMed.js" defer></script>
+  <script type="module" src="../JS/agregarMed.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
     tailwind.config = {
@@ -49,7 +48,6 @@
           <a href="https://www.utch.edu.mx" class="text-black font-medium text-base font-bold hover:italic">Utch</a>
         </div>
       </nav>
-
     </header>
 
     <section class="flex-1 flex flex-col p-5 bg-white ">
@@ -72,12 +70,12 @@
           campos.</p>
       </div>
 
-      <form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-4 mt-10">
+      <form id="formularioMedicamento" class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 mb-4 mt-10">
         <div class="flex flex-col">
           <label for="tipo_medicamento" class="mb-1 text-m font-medium">
             Presentación del medicamento:<span class="text-red-500"> *</span>
           </label>
-          <select id="tipo_medicamento" name="tipo_medicamento"
+          <select id="tipo_medicamento" name="tipo_medicamento" required
             class="w-full h-12 bg-white border border-gray-300 rounded-md px-3 pr-8 text-s focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
             <option value="" selected>Seleccione</option>
             <option value="pastillas">Pastillas</option>
@@ -86,7 +84,7 @@
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-m font-medium">
+          <label for="frecuenciaToma" class="mb-1 text-m font-medium">
             Frecuencia de la dosis: (en horas)<span class="text-red-500"> *</span>
           </label>
           <input type="number" name="frecuenciaToma" id="frecuenciaToma" required placeholder="Ej. 8." min="1" step="1"
@@ -94,13 +92,12 @@
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-m font-medium">
+          <label for="nombreMed" class="mb-1 text-m font-medium">
             Nombre del medicamento o suplemento: <span class="text-red-500">*</span>
           </label>
           <input type="text" name="nombreMed" id="nombreMed" required placeholder="Ej. Paracetamol."
             class="w-full h-12 px-1.5 py-2 text-base md:text-l border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-black transition duration-300 ease-in-out transform hover:scale-105">
         </div>
-
 
         <div class="flex flex-col">
           <label id="cantidadDosisLabel" for="cantidadDosis" class="mb-1 text-m font-medium">
@@ -111,7 +108,7 @@
         </div>
 
         <div class="flex flex-col">
-          <label id="cantidadUnaCaja" for="cantidadUnaCaja" class="mb-1 text-m font-medium">
+          <label for="cantidadUnaCaja" class="mb-1 text-m font-medium">
             Cantidad de unidades por caja: <span class="text-red-500">*</span>
           </label>
           <input type="number" name="cantidadUnaCaja" id="cantidadUnaCaja" required placeholder="Ej. 10." min="1"
@@ -120,26 +117,23 @@
         </div>
 
         <div class="flex flex-col">
-          <label id="cantidadUnaCaja" for="cantidadCajas" class="mb-1 text-m font-medium">
-
-            Cantidad de cajas disponibles:
-            <span class="text-red-500">*</span>
-
+          <label id="cantidadUnaCaja2" for="cantidadCajas" class="mb-1 text-m font-medium">
+            Cantidad de cajas disponibles: <span class="text-red-500">*</span>
           </label>
           <input type="number" name="cantidadCajas" id="cantidadCajas" required placeholder="Ej. 3." min="1" step="1"
             class="numero-positivo border h-12 rounded-md p-1.5 w-full text-s focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" />
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-m font-medium">
+          <label for="caducidadMed" class="mb-1 text-m font-medium">
             Fecha de caducidad del medicamento:
           </label>
           <input type="date" id="caducidadMed" name="caducidadMed"
-            class=" border h-12 rounded-md p-1.5 w-full text-s focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" />
+            class="border h-12 rounded-md p-1.5 w-full text-s focus:ring-black transition duration-300 ease-in-out transform hover:scale-105" />
         </div>
 
         <div class="flex flex-col">
-          <label class="mb-1 text-m font-medium">
+          <label for="ultimaToma" class="mb-1 text-m font-medium">
             Fecha de finalización del medicamento:
           </label>
           <input type="date" id="ultimaToma" name="ultimaToma"
@@ -158,9 +152,7 @@
         </button>
       </div>
     </section>
-
   </div>
 </body>
-
 
 </html>

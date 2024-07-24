@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  fetch("http://localhost:3000/getMedicamentos")
+  fetch("/api/agregar-medicamento")
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

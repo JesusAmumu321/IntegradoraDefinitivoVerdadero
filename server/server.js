@@ -1,8 +1,8 @@
-import express from 'express';
-import { PORT } from './config.js'
-import cors from 'cors';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import express from "express";
+import { PORT } from "./config.js";
+import cors from "cors";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 import connect from "./coneccionMYSQL.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -10,10 +10,9 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
 
-// middleware son funciones q se ejecutan antes q lleguen a las peticiones, pq por defeccto, express no 
+// middleware son funciones q se ejecutan antes q lleguen a las peticiones, pq por defeccto, express no
 // tramita el cuerpo del formulario cuando se lo enviamos como JSON.
 app.use(cors());
 
@@ -79,7 +78,7 @@ app.post("/api/registrar", async (req, res) => {
   } catch (error) {
     console.error("Error al insertar datos:", error);
     res
-      .status(500) 
+      .status(500)
       .json({ success: false, message: "Error al registrar usuario" }); // el 500 indica que hubo una condicion inesperada, un error
   }
 });
@@ -126,7 +125,6 @@ app.post("/api/iniciar", async (req, res) => {
   }
 });
 
-
 app.post("/api/agregar-medicamento", async (req, res) => {
   const {
     tipo_medicamento,
@@ -139,19 +137,26 @@ app.post("/api/agregar-medicamento", async (req, res) => {
     ultimaToma,
   } = req.body;
 
+  // Verificar campos obligatorios
+  if (!tipo_medicamento || !nombreMed || !cantidadDosis) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Faltan campos obligatorios" });
+  }
+
   try {
     const db = await connect();
     const [result] = await db.execute(
       "INSERT INTO medicamento (tipo_medicamento, frecuenciaToma, nombreMed, cantidadDosis, cantidadUnaCaja, cantidadCajas, caducidadMed, ultimaToma) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
       [
         tipo_medicamento,
-        frecuenciaToma,
+        frecuenciaToma || null,
         nombreMed,
         cantidadDosis,
-        cantidadUnaCaja,
-        cantidadCajas,
-        caducidadMed,
-        ultimaToma,
+        cantidadUnaCaja || null,
+        cantidadCajas || null,
+        caducidadMed || null,
+        ultimaToma || null,
       ]
     );
     await db.end();
@@ -163,33 +168,11 @@ app.post("/api/agregar-medicamento", async (req, res) => {
     console.error("Error al insertar medicamento:", error);
     res
       .status(500)
-      .json({ success: false, message: "Error al agregar medicamento" });
-  }
-});
-
-app.get("/getMedicamentos", async (req, res) => {
-  try {
-    console.log("Intentando obtener medicamentos");
-    const db = await connect();
-    console.log("Conexión a la base de datos establecida");
-    const [rows] = await db.execute(`
-      SELECT 
-        nombreMed, 
-        caducidadMed, 
-        cantidadUnaCaja, 
-        cantidadDosis, 
-        ultimaToma, 
-        frecuenciaToma
-      FROM medicamento
-    `);
-
-    await db.end();
-    res.json(rows);
-  } catch (error) {
-    console.error("Error detallado al obtener medicamentos:", error);
-    res
-      .status(500)
-      .json({ message: "Error al obtener medicamentos", error: error.message });
+      .json({
+        success: false,
+        message: "Error al agregar medicamento",
+        error: error.message,
+      });
   }
 });
 
