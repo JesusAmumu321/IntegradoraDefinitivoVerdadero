@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-export async function handleRegistro(event) {
+async function handleRegistro(event) {
   event.preventDefault();
 
   const usuario = document.getElementById("usuario").value;
@@ -24,36 +24,18 @@ export async function handleRegistro(event) {
     return;
   }
 
-  const checkEmailResponse = await fetch("/api/verificar-correo", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({ correo }),
-  });
-
-  
-
   try {
+    // Verificar si el correo ya existe
     const responseEmail = await fetch("/api/verificar-correo", {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ correo }),
     });
 
-    const response = await fetch("/api/registrar", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ usuario, correo, contrasena }),
-    });
-
     const checkEmailData = await responseEmail.json();
 
-    // ?
     if (!responseEmail.ok) {
       throw new Error(checkEmailData.mensaje || "Error al verificar el correo");
     }
@@ -68,18 +50,23 @@ export async function handleRegistro(event) {
       return;
     }
 
-    const data = await response.json();
+    // Si el correo no existe, proceder con el registro
+    const responseRegistro = await fetch("/api/registrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ usuario, correo, contrasena }),
+    });
 
-    if (response.ok) {
+    const dataRegistro = await responseRegistro.json();
+
+    if (responseRegistro.ok) {
       Swal.fire({
         icon: "success",
         title: "Registro exitoso, redirigiendo...",
         showConfirmButton: false,
         timer: 1500,
-        /*
-        Estos tres de abajo sirven para que no se pueda hacer clic afuera de la alerta
-        para quitarla, al igual q en con el escape o con el enter y ya
-        */
         allowOutsideClick: false,
         allowEscapeKey: false,
         allowEnterKey: false,
@@ -87,20 +74,14 @@ export async function handleRegistro(event) {
         window.location.href = "../HTML/login.html";
       });
     } else {
-      Swal.fire({
-        icon: "error",
-        title: "Error al momento de registrarse.",
-        text: `${data.mensaje}`,
-        // esto es pa q no se pueda quitar la alerta si lepicas afuera de la misam
-        allowOutsideClick: false,
-      });
+      throw new Error(dataRegistro.mensaje || "Error al registrarse");
     }
   } catch (error) {
-    console.error("Error durante el proceso de registrarse.", error);
+    console.error("Error durante el proceso de registro:", error);
     Swal.fire({
       icon: "error",
-      title: "Error al registrarse. Por favor, intente nuevamente.",
-      text: `${error}`,
+      title: "Error al registrarse",
+      text: error.message || "Por favor, intente nuevamente.",
       allowOutsideClick: false,
     });
   }

@@ -1,7 +1,8 @@
-import express from "express";
-import cors from "cors";
-import { fileURLToPath } from "url";
-import { dirname, join } from "path";
+import express from 'express';
+import { PORT } from './config.js'
+import cors from 'cors';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import connect from "./coneccionMYSQL.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -9,17 +10,26 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-// middleware
+
+app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+
+// middleware son funciones q se ejecutan antes q lleguen a las peticiones, pq por defeccto, express no 
+// tramita el cuerpo del formulario cuando se lo enviamos como JSON.
 app.use(cors());
+
+// pasa la peticion por aqui, la trata y hace q en los endpoints se tenga algun tipo de validacion, etc.
+// express.json().
+// mira si la req tiene algo en el body como un post (por ejemplo), y en este tiene un JSON y lo transforma.
 app.use(express.json());
+
 app.use(express.static(join(__dirname, "../public")));
+// ---------------
 
-
-app.get("/login", (req, res) => {
-  res.sendFile(join(__dirname, "../public/HTML/login.html"), (err) => {
+app.get("/", (req, res) => {
+  res.sendFile(join(__dirname, "../public/HTML/index.html"), (err) => {
     if (err) {
       console.error("error encontrando el archivo:", err);
-      res.status(500).end();
+      res.status(500).end(); // el 500 indica que hubo una condicion inesperada, un error
     }
   });
 });
@@ -28,13 +38,13 @@ app.get("/registro", (req, res) => {
   res.sendFile(join(__dirname, "../public/HTML/registro.html"), (err) => {
     if (err) {
       console.error("error encontrando el archivo:", err);
-      res.status(500).end();
+      res.status(500).end(); // el 500 indica que hubo una condicion inesperada, un error
     }
   });
 });
 
 app.post("/api/verificar-correo", async (req, res) => {
-  const { correo } = req.body;
+  const { correo } = req.body; // body es le cuerpo de la peticion, el cual va a contener el correo
 
   try {
     const db = await connect();
@@ -44,10 +54,11 @@ app.post("/api/verificar-correo", async (req, res) => {
     await db.end();
 
     res.json({ existe: rows.length > 0 });
-    
   } catch (error) {
-    console.error("Error al verificar el correo:", error);
-    res.status(500).json({ mensaje: "Error al verificar el correo" });
+    // aqui se pueden poner if y cosas asi para manejar bien los errores y no tener un despapaye
+    console.error("Error al verificar el correo:", error.message);
+
+    res.status(500).json({ mensaje: "Error al verificar el correo" }); // el 500 indica que hubo una condicion inesperada, un error
   }
 });
 
@@ -60,6 +71,7 @@ app.post("/api/registrar", async (req, res) => {
       "INSERT INTO usuarios (nombre_usuario, correo, contrasena) VALUES (?, ?, ?)",
       [usuario, correo, contrasena]
     );
+
     await db.end();
     res
       .status(200)
@@ -67,9 +79,18 @@ app.post("/api/registrar", async (req, res) => {
   } catch (error) {
     console.error("Error al insertar datos:", error);
     res
-      .status(500)
-      .json({ success: false, message: "Error al registrar usuario" });
+      .status(500) 
+      .json({ success: false, message: "Error al registrar usuario" }); // el 500 indica que hubo una condicion inesperada, un error
   }
+});
+
+app.get("/login", (req, res) => {
+  res.sendFile(join(__dirname, "../public/HTML/login.html"), (err) => {
+    if (err) {
+      console.error("error encontrando el archivo:", err);
+      res.status(500).end();
+    }
+  });
 });
 
 app.post("/api/iniciar", async (req, res) => {
@@ -77,8 +98,10 @@ app.post("/api/iniciar", async (req, res) => {
 
   try {
     const db = await connect();
-    const [rows] = await db.execute("SELECT * FROM usuarios WHERE correo = ?", [correo]);
-    
+    const [rows] = await db.execute("SELECT * FROM usuarios WHERE correo = ?", [
+      correo,
+    ]);
+
     await db.end();
 
     if (rows.length > 0) {
@@ -103,6 +126,7 @@ app.post("/api/iniciar", async (req, res) => {
   }
 });
 
+
 app.post("/api/agregar-medicamento", async (req, res) => {
   const {
     tipo_medicamento,
@@ -112,21 +136,34 @@ app.post("/api/agregar-medicamento", async (req, res) => {
     cantidadUnaCaja,
     cantidadCajas,
     caducidadMed,
-    ultimaToma
+    ultimaToma,
   } = req.body;
 
   try {
     const db = await connect();
     const [result] = await db.execute(
       "INSERT INTO medicamento (tipo_medicamento, frecuenciaToma, nombreMed, cantidadDosis, cantidadUnaCaja, cantidadCajas, caducidadMed, ultimaToma) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-      [tipo_medicamento, frecuenciaToma, nombreMed, cantidadDosis, cantidadUnaCaja, cantidadCajas, caducidadMed, ultimaToma]
+      [
+        tipo_medicamento,
+        frecuenciaToma,
+        nombreMed,
+        cantidadDosis,
+        cantidadUnaCaja,
+        cantidadCajas,
+        caducidadMed,
+        ultimaToma,
+      ]
     );
     await db.end();
 
-    res.status(200).json({ success: true, message: "Medicamento agregado con éxito" });
+    res
+      .status(200)
+      .json({ success: true, message: "Medicamento agregado con éxito" });
   } catch (error) {
     console.error("Error al insertar medicamento:", error);
-    res.status(500).json({ success: false, message: "Error al agregar medicamento" });
+    res
+      .status(500)
+      .json({ success: false, message: "Error al agregar medicamento" });
   }
 });
 
@@ -150,13 +187,11 @@ app.get("/getMedicamentos", async (req, res) => {
     res.json(rows);
   } catch (error) {
     console.error("Error detallado al obtener medicamentos:", error);
-    res.status(500).json({ message: "Error al obtener medicamentos", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error al obtener medicamentos", error: error.message });
   }
 });
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
-
 
 app.get("/api/calendario", (req, res) => {
   res.sendFile(join(__dirname, "../public/HTML/calendario.html"), (err) => {
